@@ -3,16 +3,20 @@ project:
   output-dir: docs
 
 website:
-  title: "mallorygiesie.github.io"
+  title: "Mallory Giesie"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-      
+      - href: resume.qmd
+        text: Resume
+      - href: blog.qmd
+        text: Blog
+      - href: Portfolio
+        text: Portfolio
 format:
   html:
-    theme: 
+    theme:
     - mystyles.scss
     toc: true
 
