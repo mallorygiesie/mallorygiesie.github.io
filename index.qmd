@@ -1,9 +1,16 @@
 ---
-title: "mallorygiesie.github.io"
+title: Mallory Giesie 
+image: headshot.jpg
+about: 
+  #template: Solar
+  image-shape: rounded
+  image-width: 15em
+  links:
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/mallorygiesie/
+    - text: GitHub
+      href: https://github.com/mallorygiesie
+    - text: mallorygiesiea2ucsb.edu
 ---
 
-my website
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-welcome to my website
+All About Me
