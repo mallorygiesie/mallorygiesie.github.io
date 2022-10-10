@@ -9,12 +9,11 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - blog.qmd
-
+      
 format:
   html:
-    theme: solar
-    css: styles.css
+    theme: 
+    - mystyles.scss
     toc: true
 
 editor: visual

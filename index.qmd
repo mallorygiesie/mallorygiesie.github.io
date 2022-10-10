@@ -1,8 +1,8 @@
 ---
-title: Mallory Giesie 
+title: "Mallory Giesie"
 image: headshot.jpg
 about: 
-  template: trestels
+  template: trestles
   image-shape: rounded
   image-width: 15em
   links:
@@ -10,19 +10,15 @@ about:
       href: https://www.linkedin.com/in/mallorygiesie/
     - text: GitHub
       href: https://github.com/mallorygiesie
-    - text: mallorygiesiea2ucsb.edu
+    - text: Email
 ---
 
-<<<<<<< HEAD
-------------------------------------------------------------------------
-
 All About Me!
-=======
-All About Me
->>>>>>> ecd2010c1a242bc1e4ce19d0ac87aa753eb34ccd
 
 **Pronouns:** she/her
 
 **Bio**
 
-I am currently pursuing my master\'s student in Environmental Data Science at the University of California-Santa Barbara\'s Bren School of Environmental Science & Management. My introduction to environmental data science came during my undergrad at the American University of Paris I studied Quantitative Environmental Science and Computer Science.
+I am currently pursuing my master's student in Environmental Data Science at the University of California-Santa Barbara's Bren School of Environmental Science & Management.
+
+My introduction to environmental data science came during my undergrad at the American University of Paris I studied Quantitative Environmental Science and Computer Science.
