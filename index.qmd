@@ -14,3 +14,9 @@ about:
 ---
 
 All About Me
+
+**Pronouns:** she/her
+
+**Bio**
+
+I am currently pursuing my master\'s student in Environmental Data Science at the University of California-Santa Barbara\'s Bren School of Environmental Science & Management. My introduction to environmental data science came during my undergrad at the American University of Paris I studied Quantitative Environmental Science and Computer Science.
