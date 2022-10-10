@@ -13,9 +13,13 @@ about:
     - text: mallorygiesiea2ucsb.edu
 ---
 
+<<<<<<< HEAD
 ------------------------------------------------------------------------
 
 All About Me!
+=======
+All About Me
+>>>>>>> ecd2010c1a242bc1e4ce19d0ac87aa753eb34ccd
 
 **Pronouns:** she/her
 
