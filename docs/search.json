@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "posts/10-24-example/index.html",
+    "href": "posts/10-24-example/index.html",
+    "title": "blog post title",
+    "section": "",
+    "text": "BibTeX citation:@online{giesie2022,\n  author = {Mallory Giesie},\n  title = {Blog Post Title},\n  date = {2022-10-24},\n  url = {https://mallorygiesie.github.io/posts/10-24-example/},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nMallory Giesie. 2022. “Blog Post Title.” October 24, 2022.\nhttps://mallorygiesie.github.io/posts/10-24-example/."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Mallory Giesie",
+    "section": "",
+    "text": "I am currently pursuing my master’s student in Environmental Data Science at the University of California-Santa Barbara’s Bren School of Environmental Science & Management.\nMy introduction to environmental data science came during my undergrad at the American University of Paris I studied Quantitative Environmental Science and Computer Science."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "My Blog",
+    "section": "",
+    "text": "MEDS\n\n\ntest\n\n\nR\n\n\n\nthis is a description of my post\n\n\n\nMallory Giesie\n\n\nOct 24, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+  }
+]
