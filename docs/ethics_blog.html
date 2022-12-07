@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Mallory Giesie">
+<meta name="dcterms.date" content="2022-10-24">
 
-<title>Mallory Giesie - My Blog</title>
+<title>Mallory Giesie - The Blame Game and Artifical Intelligence</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,8 +27,6 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -55,37 +55,7 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -110,7 +80,7 @@ ul.task-list{list-style: none;}
     <a class="nav-link" href="./resume.qmd">Resume</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page">Blog</a>
+    <a class="nav-link" href="./blog.html">Blog</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./Portfolio">Portfolio</a>
@@ -127,109 +97,61 @@ ul.task-list{list-style: none;}
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="MEDS">MEDS <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Statistics for the Environment">Statistics for the Environment <span class="quarto-category-count">(1)</span></div><div class="category" data-category="test">test <span class="quarto-category-count">(1)</span></div></div></div>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">My Blog</h1>
-</div>
+<h1 class="title">The Blame Game and Artifical Intelligence</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Artifical Intelligence</div>
+    <div class="quarto-category">Ethical Data Science</div>
+    <div class="quarto-category">MEDS</div>
+  </div>
+  </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    Mallory Giesie 
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Master of Environmental Data Science Program @ The Bren School (UCSB)
+          </p>
+      </div>
+    </div>
 
 <div class="quarto-title-meta">
 
-    
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 24, 2022</p>
+    </div>
+  </div>
     
   </div>
   
 
 </header>
 
+<p><strong>Artificial Intelligence’s Blame Game</strong></p>
+<p>As artificial intelligence becomes increasingly ubiquitous in our society, so do the various mistakes models and agents make, introducing the 21st-century blame game. The decisions the creators of artificial intelligence projects must make expand well beyond that of an engineer and raise complex philosophical, scientific, and socio-economic questions that if answered poorly, create damaging effects. Given the complexity of the job and the various people assigned at all levels to implement AI projects comes an important question: <em>Who do we blame when things go awry?</em> And <em>if we establish these protocols, will it change how often and why these mistakes are made?</em></p>
+<p>As I was reflecting on this question, I remembered a story I read that deals with many of these underlying principles. The story, titled The Drawbridge, reminded me of the inherent complexity of assigning blame when an AI agent or model fails. In the story, a jealous baron instructs the baroness not to leave their castle while he is gone. After he leaves, and as she grows lonely, she decides to visit her lover, believing that she will surely be home before her husband. On her way back she is greeted by a gateman who tells her if she crosses the bridge, she will be killed, as he has been ordered to do so by the king. Following this order from the gateman, she seeks help from a lover, a friend, and a boatman who all fail her in one way or another. The lover by saying their relationship is only sexual, and he cannot help her. The friend disapproves of the baroness defying her husband and is unwilling to help. And the boatman who demands payment for his service despite the baroness being penniless. Exhausting all of her options, she attempts to cross the bridge against the gateman’s orders and is killed.</p>
+<p>This leaves the question, who is responsible for the baroness’s death? Is it the husband who commanded the order? Could it be the gateman for following orders? Is it her friend or lover who refused to help in her time of need? Or finally, is it the baroness herself for willingly putting herself in the position that led to her death? There is, of course, not a clear answer, and arguably all characters share in some blame for the death of the Baroness. I’d argue that the convoluted nature of the story and specifically the theme of blame can be applied to our society as we grapple with the effects of artificial intelligence all around us, unable to pinpoint who to thank or blame.</p>
+<p>These characters and their real-world representations can be assigned to many variations of our AI blame game. In the context of AI, the baron could represent big tech. The castle: Silicon Valley. The baroness: society, shackled by technology and its choke hold over our lives but without the power to change it. The gateman enforcing the rules could represent an artificial agent itself, a blind follower of orders, rules, the algorithm. Alternatively, is the gateman the engineer working for a tech giant whose actions as a result of their time, skill, and or obedience are ultimately destructive? In these two tech world representations of the gateman, the engineer, or the artificial agent, there are vast differences in authority and therefore, reprehensibility. As the engineer, they have free will to leave the company, change the project, not kill the princess. However, the artificial agent does not. Because ascribing blame to an entity without psychological capacity is fruitless, maybe the question should therefore be how much ethical responsibility can we expect of our engineers? <em>Are those who are taking the orders responsible for the problem?</em> If they are the gateman, can we blame them? Or, if the artificial agent is the gateman, are they the Baron? And if so, <em>are they responsible for our current culture or the implantation of a destructive model?</em></p>
+<p>Ultimately, deciding who to blame is nuanced and changes from situation to situation. But I think the process of breaking it down into its various parts illuminates a few key questions we should be thinking about as we continue down the AI rabbit hole. I think primarily it highlights how we should be empowering everyone throughout the process to keep ethical considerations at the back of their mind and encourage employees to be asking difficult questions. These questions lead to ethical explorations that are imperative to be considered if we want artificial intelligence to be a tool, not a hindrance.</p>
+<p>I, in no way, have the answer to the blame game, but I do have ideas on how we answer some of the key questions it raises. As I mentioned above, the domain-specific questions that come up when building an AI model which is meant to be implemented in a society with such complexity must be tackled by a team of multidisciplinary experts. No one person can be tasked to play the role of philosopher, psychologist, economist, scientist… In addition, it would be incredibly effective to empower employees within tech to be able to take the moral high ground and challenge their superiors, without the risk of job loss. Ideally, engineers would have a moral stop work authority. However, this is a tricky realm to navigate, and to put the responsibility solely on the employees excuses the billionaire CEOs of our world. In addition, it is problematic and lacks a nuanced understanding of the privileges of those who hold these various positions. Moreover, In addition to empowering engineers, I think policy is necessary to establish a protocol that holds executives accountable. Among all of these things, continued research into the expanding role of AI in society and a commitment to open science is imperative to the prevention of AI failure. I believe the collection of goals I’ve discussed above, while only scratching the surface, will not only lead to a more thoughtful, productive community but will work to clarify the blame game, and hopefully, prevent the need for assigning blame whenever possible.</p>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Statistics for the Environment,R,MEDS" data-listing-date-sort="1666594800000" data-listing-file-modified-sort="1670292465014" data-listing-reading-time-sort="10.965">
-<a href="./posts/arctic-traffic-analysis/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/arctic-traffic-analysis/arctic.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Analysis of Changing Arctic Traffic
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Statistics for the Environment'); return false;">
-Statistics for the Environment
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('MEDS'); return false;">
-MEDS
-</div>
-</div>
-<div class="card-text listing-description">
-<strong>How is Traffic in the Arctic Changing?</strong>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Mallory Giesie
-</div>
-<div class="listing-date">
-Oct 24, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="MEDS,test,R" data-listing-date-sort="1666594800000" data-listing-file-modified-sort="1666647283289" data-listing-reading-time-sort="0.005">
-<a href="./posts/10-24-example/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-img-bg" style="height: 150px;">
-&nbsp;
-</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-blog post title
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('MEDS'); return false;">
-MEDS
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('test'); return false;">
-test
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-</div>
-<div class="card-text listing-description">
-this is a description of my post
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Mallory Giesie
-</div>
-<div class="listing-date">
-Oct 24, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

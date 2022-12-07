@@ -250,12 +250,11 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
 $$
 
 ```{r}
-mod <- lm(Value ~ abs(Extent) + Year + Season, data = anomaly_north)
-mod %>%
+mod1 <- lm(Value ~ abs(Extent) + Year + Season, data = anomaly_north)
+mod1 %>%
   tbl_regression(intercept= TRUE) %>%
   as_gt() %>%
   gt::tab_source_note(gt::md("*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"))
-
 ```
 
 **Interpretation :**
@@ -283,8 +282,8 @@ $$
 TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice Extent_i + \epsilon_i
 $$
 ```{r}
-mod <- lm(Value ~ Season + Year + Region + Extent, data = all_anomaly_dat)
-mod %>%
+mod2 <- lm(Value ~ Season + Year + Region + Extent, data = all_anomaly_dat)
+mod2 %>%
   tbl_regression(intercept= TRUE) %>%
   as_gt() %>%
   gt::tab_source_note(gt::md("*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"))
@@ -306,9 +305,9 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
 \beta_3 * Season_i * Region_i + \epsilon_i
 $$
 ```{r}
-mod <- lm(Value ~ Region +Season + Region:Season, data = all_anomaly_dat)
+mod3 <- lm(Value ~ Region +Season + Region:Season, data = all_anomaly_dat)
 
-mod %>%
+mod3 %>%
   tbl_regression(intercept= TRUE) %>%
   as_gt() %>% 
   gt::tab_source_note(gt::md("*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"))
@@ -337,13 +336,31 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
 $$
 
 ```{r}
-mod <- lm(Value ~ Extent + Year + Region +Season + Region:Season, data = all_anomaly_dat)
+mod4 <- lm(Value ~ Extent + Year + Region +Season + Region:Season, data = all_anomaly_dat)
 
-mod %>%
+mod4 %>%
   tbl_regression(intercept= TRUE) %>%
   as_gt() %>% 
   gt::tab_source_note(gt::md("*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"))
 ```
 **Conclusions:**
+
+Based on my analysis, I feel confident concluding that arctic ship traffic in the northern region of my data set is undergoing significant change and is more vulnerable to the effects of sea ice decline than the southern portion. This makes sense as throughout the entirety of the year, you still see ship observations in the this region, and ship navigation is not determined by ice extent, as it is in the northern region. 
+
 **Limitations:**
+
+My analysis relies on OLS, and therefore must meet the assumptions...
+Another limitation may come from interpreting my models. In order to conduct my analysis, I totaled ship observations in each area. Ship observations between hexagons naturally includes the same vessels. This means when one interprets the  predicted values values of my model 58,290 ship observations in the south doesn't mean 58,290 ships, but rather times a ship was seen, regardless of if it was already registered. Also, for my sea ice extent anomaly data I only had a holistic calculation for the entirety of the arctic, not the specific region my ship traffic focused on. For this I was assuming ice extent trends for the arctic where close enough to the actual numbers in my region, which could have affected the accuracy of my models. 
+
 **Future Research:**
+I think it would be interesting to dig deeper into the northern region and target which areas are seeing a large increase in ship observations. To do this it may be better to have ice extent data that applied to more specific regions.  
+
+**Appendix**
+**Supporting Figures**
+::: {layout-nrow=1}
+```{r}
+mod <- lm(Value ~ Year, data = anomaly_south)
+summary(mod)
+res <- resid(mod)
+```
+:::
