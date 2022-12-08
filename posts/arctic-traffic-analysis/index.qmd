@@ -10,7 +10,6 @@ date: 10-24-2022
 categories: [Statistics for the Environment, R, MEDS] 
 citation: 
   url: https://mallorygiesue.github.io/posts/arctic-traffic-analysis/ 
-image: arctic.jpg
 draft: false 
 format:
   html:
