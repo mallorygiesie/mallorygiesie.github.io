@@ -1,6 +1,6 @@
 ---
 title: "Analysis of Changing Arctic Traffic"
-description: ""
+editor: visual
 author:
   - name: Mallory Giesie
     url: https://mallorygiesie.github.io/
@@ -35,6 +35,7 @@ library(ggplot2)
 library(gtsummary)
 rootdir <- "/Users/mallorygiesie/Desktop/MEDS/eds-222/final_project"
 ```
+
 
 **How is Traffic in the Arctic Changing?**
 
