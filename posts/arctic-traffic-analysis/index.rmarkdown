@@ -36,6 +36,7 @@ library(gtsummary)
 rootdir <- "/Users/mallorygiesie/Desktop/MEDS/eds-222/final_project"
 ```
 
+
 **How is Traffic in the Arctic Changing?**
 
 *Introduction:*
@@ -43,6 +44,7 @@ rootdir <- "/Users/mallorygiesie/Desktop/MEDS/eds-222/final_project"
 The Arctic Sea, once an area nearly impenetrable, has become a new playground for shipping and tourism alike. This is impart due to advances in ships and navigation allowing safer passage to areas once completely isolated. More importantly, and what this analysis is meant to reflect, is the effect climate change has had on ice extent allowing for more ships to voyage, more months out of the year throughout the arctic. It has been reported that between the years 2013 and 2019 the number of ships entering arctic grew by 25%. ([PAME](https://www.pame.is/projects/arctic-marine-shipping/arctic-shipping-status-reports)). In 2017, The Polar Code was enacted by the International Maritime Organization providing framework for safely navigating polar waters while adhering to environmental protocol. The region is under a time of immense change, and understanding ship traffic patterns is integral to assessing potential increased destruction to the area.
 
 **My Data**
+
 
 ```{r}
 #| include: false
@@ -71,6 +73,7 @@ df_geom <- Filter(function(x)
   is(x, "data.frame"), mget(ls()))
 ```
 
+
 [**North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data**](https://arcticdata.io/catalog/view/doi:10.18739/A2XG9FC41)
 
 To frame my question I will primarily be using satellite collected data tracking unique ship observations in the Pacific Arctic sector which extends from the Aleutian Islands through Bering Sea and into the southern Chukchi and Beaufort Seas.
@@ -78,6 +81,7 @@ To frame my question I will primarily be using satellite collected data tracking
 The data was collected monthly between January 1, 2015 and December 31, 2020. To calculate shipping intensity, they used an Automatic Identification System data collected from all ships over 300 gross tonnes on an international voyage, all cargo ships over 500 gross tonnes, and all passenger ships. They then converted the AIS data into a monthly hex data set which I downloaded as vector data. I chose to focus on the monthly sum of unique ships (both cargo and passenger) in the region.
 
 **Visualized Hex Data**
+
 
 ```{r}
 `2015-01` <- `2015-01` |>  mutate_all(~replace(., is.na(.), 0))
@@ -123,7 +127,9 @@ oct <- tm_shape(`2015-10`) +
   ) + tm_layout(legend.outside = TRUE, title = "October 2015")
 ```
 
+
 ::: {layout-nrow="2"}
+
 ```{r}
 #| echo: false
 #| include: true
@@ -147,6 +153,7 @@ july
 #| include: true
 oct
 ```
+
 :::
 
 **Climate Bulletin: Arctic Sea Ice Extent Anomalies**
@@ -168,6 +175,7 @@ Then finally I included an interaction to see if the effect of the season depend
 **My Results**
 
 **Decomposition**
+
 
 ```{r}
 all_years<- do.call(rbind, df_geom) |>
@@ -227,9 +235,11 @@ north_time
 south_time
 ```
 
+
 From these two figures you can see the different ways seasonal and yearly trends play in the northern and southern regions of our data set. The number of ships seen in the northern region, is much more dependent on the season than the southern. This makes sense, because the ice is much denser in the earlier half of the year. We can see from the visualization of our data, it is rare to see many ships travel far north in January and April. This also plays into the intuition why the yearly trend for the northern portion of the data is stronger. As sea ice melts, the area where we will see more and more ship traffic will be the northern polar areas where it was once barricaded by ice.
 
 **Multiple Linear Regression**
+
 
 ```{r}
 july_anomaly <- read.csv(file.path(rootdir, "july_anomaly.csv")) |> slice(37:42) |> dplyr::select(Date, X.SIA.anomaly)
@@ -242,9 +252,11 @@ anomaly_south <- rbind(july_anomaly,oct_anomaly,april_anomaly,january_anomaly) |
 anomaly_north <- rbind(july_anomaly,oct_anomaly,april_anomaly,january_anomaly) |> arrange(Date) |> cbind(traffic_ts_north) |> dplyr::select(-index) |> dplyr::rename(Extent = X.SIA.anomaly, Value = value) |> mutate(Date = lubridate::ym(Date)) |> mutate(Year = lubridate::year(Date), Month = lubridate::month(Date)) |> mutate(Month = as.factor(Month)) |> mutate(Season = ifelse(Month == 1 | Month == 4, "First_Half", "Last_half")) |> mutate(Season = as.factor(Season))
 ```
 
+
 To begin, I ran regression to predict monthly ship observations in the southern region of my data set (see appendix). The only predictor that had a significant effect on amount of ships seen monthly in the southern region of our data set was year. The intercept was nonsensical but the model predicts that each year ship sightings grow by an estimated 1,492 ships.
 
 I then ran regression to predict monthly ship observations in the northern region as you can see below.
+
 
 $$
 NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice Extent + \epsilon_i
@@ -258,11 +270,13 @@ mod1 %>%
   gt::tab_source_note(gt::md("*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"))
 ```
 
+
 **Adjusted R-squared: 0.929014**
 
 **Interpretation**
 
 **Coefficients:** Unlike the southern region, the northern region has more significant predictors. This makes sense from what we saw in our time series decomposition. For each unit increase in ice extent (1 million sq km farther from the mean) the model predicts to see 2,346 more ships holding year fixed and season fixed. For each year increase, holding extent and season fixed, ship sightings grow by an estimated 2,346. And finally, the last half of the year adds a predicted increase of 15,338 ship sightings compared to the beginning half of the year holding fixed the year and ice extent. Next I combined my southern and northern observations. And ran regression with all of my predictors and no interactions (See appendix)
+
 
 ```{r}
 anomaly_south <- anomaly_south |> mutate(Region = "south")
@@ -270,7 +284,9 @@ anomaly_north <-  anomaly_north |> mutate(Region = "north")
 all_anomaly_dat <- rbind(anomaly_south, anomaly_north) |> mutate(Region = as.factor(Region))
 ```
 
+
 **Understanding the effect season has on the each region** 
+
 
 $$
 TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
@@ -286,17 +302,22 @@ mod3 %>%
   gt::tab_source_note(gt::md("*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"))
 ```
 
+
 **Adjusted R-squared: 0.9529827**
 
 **Coefficients:** The intercept: 3,867 ships is the predicted number of ship sightings in the northern region in the first half of the year. 58,290 is the difference in predicted ship sightings between the north and south. 14,255 is the predicted difference in ship sightings between the first and last half of the year. From the interaction coefficient, if we wanted to determine the number of predicted ship sightings in the south in the last half of the year we would calculate
 
+
 $$ShipSightings = 3,867 + 58,290 + 14,255 - 16,002$$ 
+
 $$ 60,410 $$
+
 An adjusted R-squared value of .9529 means that season and region alone contribute to about 95% percent of the variability in ship sightings.
 
 Finally, I wanted to see the strength of the model with all of my predictors and the interaction between season and region.
 
 **Putting it all together** 
+
 
 $$
 TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * IceExtent_i + 
@@ -311,6 +332,7 @@ mod4 %>%
   as_gt() %>% 
   gt::tab_source_note(gt::md("*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"))
 ```
+
 
 **Adjusted R-Squared: 0.9611927**
 
@@ -336,6 +358,7 @@ I think it would be interesting to dig deeper into the northern region and targe
 
 **Supporting Figures**
 
+
 ```{r}
 #| warning: false
 anomaly <- all_anomaly_dat |> select(Extent)
@@ -352,7 +375,9 @@ anomaly_ts  %>%
   labs(title = "Decomposition of Sea Ice Extent Anomalies in the Arctic 2015-2021")
 ```
 
+
 ::: {layout-nrow="1"}
+
 ```{r}
 mod <- lm(Value ~ Year, data = anomaly_south)
 mod %>%
@@ -368,11 +393,13 @@ mod2 %>%
   as_gt() %>%
   gt::tab_source_note(gt::md("*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"))
 ```
+
 :::
 
 **Residual Distributions of my models**
 
 ::: {layout-nrow="2"}
+
 ```{r}
 mod <- lm(Value ~ Year, data = anomaly_south)
 
@@ -436,4 +463,6 @@ interaction_errors <- ggplot(data = mod4, aes(sample = res)) +
 
 interaction_errors
 ```
+
 :::
+
