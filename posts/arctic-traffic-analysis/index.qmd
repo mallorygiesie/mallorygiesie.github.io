@@ -212,7 +212,7 @@ north_time <- traffic_ts_north  %>%
   autoplot() +
   labs(title = "Decomposition of Ship Traffic: Northern Bering and Southern Chukchi")
 ```
-
+::: {layout-nrow="1"}
 ```{r}
 #| echo: false
 #| include: true
@@ -226,6 +226,7 @@ north_time
 #| warning: false
 south_time
 ```
+:::
 
 From these two figures you can see the different ways seasonal and yearly trends play in the northern and southern regions of our data set. The number of ships seen in the northern region, is much more dependent on the season than the southern. This makes sense, because the ice is much denser in the earlier half of the year. We can see from the visualization of our data, it is rare to see many ships travel far north in January and April. This also plays into the intuition why the yearly trend for the northern portion of the data is stronger. As sea ice melts, the area where we will see more and more ship traffic will be the northern polar areas where it was once barricaded by ice.
 
