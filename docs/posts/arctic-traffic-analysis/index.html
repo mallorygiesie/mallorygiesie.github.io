@@ -295,9 +295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em>1. Time Series Analysis</em></p>
 <p>I wanted to look at the changes in ship traffic over time and how these may change given the part of region of the data set we were looking at. To do this I split my data up into north and south and ran decomposition to understand the underlying trends. I also ran this on the sea ice anomaly data (see appendix).</p>
 <p><em>2. OLS Linear regression</em></p>
-<p>I wanted to understand what factors determine the number of ships sited in a given month. To do this I summed each hex value to determine the amount of vessels registered per month. I split these up to north and south and ran OLS linear regression with sea ice anomaly, year, and season (first or last half of the year) as my predicting variables.</p>
-<p>I then combined the data sets and ran an OLS linear regression which now included region (north or south) as a predictor of monthly ship numbers.</p>
-<p>Then finally I included an interaction to see if the effect of the season depends on the region.</p>
+<p>I wanted to understand what factors determine the number of ships sited in a given month. To do this I summed each hex value to determine the number of vessels registered per month. I split these up to north and south and ran OLS linear regression with sea ice anomaly, year, and season (first or last half of the year) as my predicting variables. I then combined the data sets and ran an OLS linear regression which now included region (north or south) as a predictor of monthly ship numbers. Then finally I included an interaction to see if the effect of the season depends on the region.</p>
 <p><strong>My Results</strong></p>
 <p><strong>Decomposition</strong></p>
 <div class="cell">
@@ -328,7 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Decomposition of Ship Traffic in the Arctic: Bering sea from 2015-2021"</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Decomposition of Ship Traffic: Bering Sea from 2015-2021"</span>)</span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>north <span class="ot">&lt;-</span> <span class="fu">st_drop_geometry</span>(north)</span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>yearly_totals <span class="ot">&lt;-</span> <span class="fu">colSums</span>(north, <span class="at">na.rm=</span>T)</span>
@@ -343,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Decomposition of Ship Traffic in the Arctic: Northern Bering and Southern Chukchi and Beaufort Seas from 2015-2021"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Decomposition of Ship Traffic: Northern Bering and Southern Chukchi from 2015-2021"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
@@ -387,12 +385,12 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
 </details>
 <div class="cell-output-display">
 
-<div id="ztwjqzmntf" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="vlotqmjcdz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#ztwjqzmntf .gt_table {
+#vlotqmjcdz .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -417,7 +415,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   border-left-color: #D3D3D3;
 }
 
-#ztwjqzmntf .gt_heading {
+#vlotqmjcdz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -429,7 +427,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   border-right-color: #D3D3D3;
 }
 
-#ztwjqzmntf .gt_title {
+#vlotqmjcdz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -441,7 +439,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   border-bottom-width: 0;
 }
 
-#ztwjqzmntf .gt_subtitle {
+#vlotqmjcdz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -453,13 +451,13 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   border-top-width: 0;
 }
 
-#ztwjqzmntf .gt_bottom_border {
+#vlotqmjcdz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ztwjqzmntf .gt_col_headings {
+#vlotqmjcdz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -474,7 +472,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   border-right-color: #D3D3D3;
 }
 
-#ztwjqzmntf .gt_col_heading {
+#vlotqmjcdz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -494,7 +492,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   overflow-x: hidden;
 }
 
-#ztwjqzmntf .gt_column_spanner_outer {
+#vlotqmjcdz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -506,15 +504,15 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   padding-right: 4px;
 }
 
-#ztwjqzmntf .gt_column_spanner_outer:first-child {
+#vlotqmjcdz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ztwjqzmntf .gt_column_spanner_outer:last-child {
+#vlotqmjcdz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ztwjqzmntf .gt_column_spanner {
+#vlotqmjcdz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -526,7 +524,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   width: 100%;
 }
 
-#ztwjqzmntf .gt_group_heading {
+#vlotqmjcdz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -551,7 +549,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   vertical-align: middle;
 }
 
-#ztwjqzmntf .gt_empty_group_heading {
+#vlotqmjcdz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -566,15 +564,15 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   vertical-align: middle;
 }
 
-#ztwjqzmntf .gt_from_md > :first-child {
+#vlotqmjcdz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ztwjqzmntf .gt_from_md > :last-child {
+#vlotqmjcdz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ztwjqzmntf .gt_row {
+#vlotqmjcdz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -593,7 +591,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   overflow-x: hidden;
 }
 
-#ztwjqzmntf .gt_stub {
+#vlotqmjcdz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -606,7 +604,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   padding-right: 5px;
 }
 
-#ztwjqzmntf .gt_stub_row_group {
+#vlotqmjcdz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -620,11 +618,11 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   vertical-align: top;
 }
 
-#ztwjqzmntf .gt_row_group_first td {
+#vlotqmjcdz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ztwjqzmntf .gt_summary_row {
+#vlotqmjcdz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -634,16 +632,16 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   padding-right: 5px;
 }
 
-#ztwjqzmntf .gt_first_summary_row {
+#vlotqmjcdz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ztwjqzmntf .gt_first_summary_row.thick {
+#vlotqmjcdz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ztwjqzmntf .gt_last_summary_row {
+#vlotqmjcdz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -653,7 +651,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   border-bottom-color: #D3D3D3;
 }
 
-#ztwjqzmntf .gt_grand_summary_row {
+#vlotqmjcdz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -663,7 +661,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   padding-right: 5px;
 }
 
-#ztwjqzmntf .gt_first_grand_summary_row {
+#vlotqmjcdz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -673,11 +671,11 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   border-top-color: #D3D3D3;
 }
 
-#ztwjqzmntf .gt_striped {
+#vlotqmjcdz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ztwjqzmntf .gt_table_body {
+#vlotqmjcdz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -686,7 +684,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   border-bottom-color: #D3D3D3;
 }
 
-#ztwjqzmntf .gt_footnotes {
+#vlotqmjcdz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -700,7 +698,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   border-right-color: #D3D3D3;
 }
 
-#ztwjqzmntf .gt_footnote {
+#vlotqmjcdz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -709,7 +707,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   padding-right: 5px;
 }
 
-#ztwjqzmntf .gt_sourcenotes {
+#vlotqmjcdz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -723,7 +721,7 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   border-right-color: #D3D3D3;
 }
 
-#ztwjqzmntf .gt_sourcenote {
+#vlotqmjcdz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -731,64 +729,64 @@ NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * 
   padding-right: 5px;
 }
 
-#ztwjqzmntf .gt_left {
+#vlotqmjcdz .gt_left {
   text-align: left;
 }
 
-#ztwjqzmntf .gt_center {
+#vlotqmjcdz .gt_center {
   text-align: center;
 }
 
-#ztwjqzmntf .gt_right {
+#vlotqmjcdz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ztwjqzmntf .gt_font_normal {
+#vlotqmjcdz .gt_font_normal {
   font-weight: normal;
 }
 
-#ztwjqzmntf .gt_font_bold {
+#vlotqmjcdz .gt_font_bold {
   font-weight: bold;
 }
 
-#ztwjqzmntf .gt_font_italic {
+#vlotqmjcdz .gt_font_italic {
   font-style: italic;
 }
 
-#ztwjqzmntf .gt_super {
+#vlotqmjcdz .gt_super {
   font-size: 65%;
 }
 
-#ztwjqzmntf .gt_footnote_marks {
+#vlotqmjcdz .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#ztwjqzmntf .gt_asterisk {
+#vlotqmjcdz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ztwjqzmntf .gt_indent_1 {
+#vlotqmjcdz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ztwjqzmntf .gt_indent_2 {
+#vlotqmjcdz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ztwjqzmntf .gt_indent_3 {
+#vlotqmjcdz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ztwjqzmntf .gt_indent_4 {
+#vlotqmjcdz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ztwjqzmntf .gt_indent_5 {
+#vlotqmjcdz .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -870,12 +868,12 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
 </details>
 <div class="cell-output-display">
 
-<div id="idqmfqwqjv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="oujaktxius" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#idqmfqwqjv .gt_table {
+#oujaktxius .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -900,7 +898,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   border-left-color: #D3D3D3;
 }
 
-#idqmfqwqjv .gt_heading {
+#oujaktxius .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -912,7 +910,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   border-right-color: #D3D3D3;
 }
 
-#idqmfqwqjv .gt_title {
+#oujaktxius .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -924,7 +922,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   border-bottom-width: 0;
 }
 
-#idqmfqwqjv .gt_subtitle {
+#oujaktxius .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -936,13 +934,13 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   border-top-width: 0;
 }
 
-#idqmfqwqjv .gt_bottom_border {
+#oujaktxius .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#idqmfqwqjv .gt_col_headings {
+#oujaktxius .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -957,7 +955,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   border-right-color: #D3D3D3;
 }
 
-#idqmfqwqjv .gt_col_heading {
+#oujaktxius .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -977,7 +975,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   overflow-x: hidden;
 }
 
-#idqmfqwqjv .gt_column_spanner_outer {
+#oujaktxius .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -989,15 +987,15 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   padding-right: 4px;
 }
 
-#idqmfqwqjv .gt_column_spanner_outer:first-child {
+#oujaktxius .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#idqmfqwqjv .gt_column_spanner_outer:last-child {
+#oujaktxius .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#idqmfqwqjv .gt_column_spanner {
+#oujaktxius .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1009,7 +1007,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   width: 100%;
 }
 
-#idqmfqwqjv .gt_group_heading {
+#oujaktxius .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1034,7 +1032,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   vertical-align: middle;
 }
 
-#idqmfqwqjv .gt_empty_group_heading {
+#oujaktxius .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1049,15 +1047,15 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   vertical-align: middle;
 }
 
-#idqmfqwqjv .gt_from_md > :first-child {
+#oujaktxius .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#idqmfqwqjv .gt_from_md > :last-child {
+#oujaktxius .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#idqmfqwqjv .gt_row {
+#oujaktxius .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1076,7 +1074,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   overflow-x: hidden;
 }
 
-#idqmfqwqjv .gt_stub {
+#oujaktxius .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1089,7 +1087,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   padding-right: 5px;
 }
 
-#idqmfqwqjv .gt_stub_row_group {
+#oujaktxius .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1103,11 +1101,11 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   vertical-align: top;
 }
 
-#idqmfqwqjv .gt_row_group_first td {
+#oujaktxius .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#idqmfqwqjv .gt_summary_row {
+#oujaktxius .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1117,16 +1115,16 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   padding-right: 5px;
 }
 
-#idqmfqwqjv .gt_first_summary_row {
+#oujaktxius .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#idqmfqwqjv .gt_first_summary_row.thick {
+#oujaktxius .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#idqmfqwqjv .gt_last_summary_row {
+#oujaktxius .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1136,7 +1134,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   border-bottom-color: #D3D3D3;
 }
 
-#idqmfqwqjv .gt_grand_summary_row {
+#oujaktxius .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1146,7 +1144,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   padding-right: 5px;
 }
 
-#idqmfqwqjv .gt_first_grand_summary_row {
+#oujaktxius .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1156,11 +1154,11 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   border-top-color: #D3D3D3;
 }
 
-#idqmfqwqjv .gt_striped {
+#oujaktxius .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#idqmfqwqjv .gt_table_body {
+#oujaktxius .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1169,7 +1167,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   border-bottom-color: #D3D3D3;
 }
 
-#idqmfqwqjv .gt_footnotes {
+#oujaktxius .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1183,7 +1181,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   border-right-color: #D3D3D3;
 }
 
-#idqmfqwqjv .gt_footnote {
+#oujaktxius .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1192,7 +1190,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   padding-right: 5px;
 }
 
-#idqmfqwqjv .gt_sourcenotes {
+#oujaktxius .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1206,7 +1204,7 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   border-right-color: #D3D3D3;
 }
 
-#idqmfqwqjv .gt_sourcenote {
+#oujaktxius .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1214,64 +1212,64 @@ TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
   padding-right: 5px;
 }
 
-#idqmfqwqjv .gt_left {
+#oujaktxius .gt_left {
   text-align: left;
 }
 
-#idqmfqwqjv .gt_center {
+#oujaktxius .gt_center {
   text-align: center;
 }
 
-#idqmfqwqjv .gt_right {
+#oujaktxius .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#idqmfqwqjv .gt_font_normal {
+#oujaktxius .gt_font_normal {
   font-weight: normal;
 }
 
-#idqmfqwqjv .gt_font_bold {
+#oujaktxius .gt_font_bold {
   font-weight: bold;
 }
 
-#idqmfqwqjv .gt_font_italic {
+#oujaktxius .gt_font_italic {
   font-style: italic;
 }
 
-#idqmfqwqjv .gt_super {
+#oujaktxius .gt_super {
   font-size: 65%;
 }
 
-#idqmfqwqjv .gt_footnote_marks {
+#oujaktxius .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#idqmfqwqjv .gt_asterisk {
+#oujaktxius .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#idqmfqwqjv .gt_indent_1 {
+#oujaktxius .gt_indent_1 {
   text-indent: 5px;
 }
 
-#idqmfqwqjv .gt_indent_2 {
+#oujaktxius .gt_indent_2 {
   text-indent: 10px;
 }
 
-#idqmfqwqjv .gt_indent_3 {
+#oujaktxius .gt_indent_3 {
   text-indent: 15px;
 }
 
-#idqmfqwqjv .gt_indent_4 {
+#oujaktxius .gt_indent_4 {
   text-indent: 20px;
 }
 
-#idqmfqwqjv .gt_indent_5 {
+#oujaktxius .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1360,12 +1358,12 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
 </details>
 <div class="cell-output-display">
 
-<div id="hogaijwviv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="fywixvnlin" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#hogaijwviv .gt_table {
+#fywixvnlin .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1390,7 +1388,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-left-color: #D3D3D3;
 }
 
-#hogaijwviv .gt_heading {
+#fywixvnlin .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1402,7 +1400,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-right-color: #D3D3D3;
 }
 
-#hogaijwviv .gt_title {
+#fywixvnlin .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1414,7 +1412,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-bottom-width: 0;
 }
 
-#hogaijwviv .gt_subtitle {
+#fywixvnlin .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1426,13 +1424,13 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-top-width: 0;
 }
 
-#hogaijwviv .gt_bottom_border {
+#fywixvnlin .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hogaijwviv .gt_col_headings {
+#fywixvnlin .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1447,7 +1445,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-right-color: #D3D3D3;
 }
 
-#hogaijwviv .gt_col_heading {
+#fywixvnlin .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1467,7 +1465,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   overflow-x: hidden;
 }
 
-#hogaijwviv .gt_column_spanner_outer {
+#fywixvnlin .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1479,15 +1477,15 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 4px;
 }
 
-#hogaijwviv .gt_column_spanner_outer:first-child {
+#fywixvnlin .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hogaijwviv .gt_column_spanner_outer:last-child {
+#fywixvnlin .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hogaijwviv .gt_column_spanner {
+#fywixvnlin .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1499,7 +1497,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   width: 100%;
 }
 
-#hogaijwviv .gt_group_heading {
+#fywixvnlin .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1524,7 +1522,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   vertical-align: middle;
 }
 
-#hogaijwviv .gt_empty_group_heading {
+#fywixvnlin .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1539,15 +1537,15 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   vertical-align: middle;
 }
 
-#hogaijwviv .gt_from_md > :first-child {
+#fywixvnlin .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hogaijwviv .gt_from_md > :last-child {
+#fywixvnlin .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hogaijwviv .gt_row {
+#fywixvnlin .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1566,7 +1564,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   overflow-x: hidden;
 }
 
-#hogaijwviv .gt_stub {
+#fywixvnlin .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1579,7 +1577,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#hogaijwviv .gt_stub_row_group {
+#fywixvnlin .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1593,11 +1591,11 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   vertical-align: top;
 }
 
-#hogaijwviv .gt_row_group_first td {
+#fywixvnlin .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hogaijwviv .gt_summary_row {
+#fywixvnlin .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1607,16 +1605,16 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#hogaijwviv .gt_first_summary_row {
+#fywixvnlin .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hogaijwviv .gt_first_summary_row.thick {
+#fywixvnlin .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hogaijwviv .gt_last_summary_row {
+#fywixvnlin .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1626,7 +1624,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-bottom-color: #D3D3D3;
 }
 
-#hogaijwviv .gt_grand_summary_row {
+#fywixvnlin .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1636,7 +1634,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#hogaijwviv .gt_first_grand_summary_row {
+#fywixvnlin .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1646,11 +1644,11 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-top-color: #D3D3D3;
 }
 
-#hogaijwviv .gt_striped {
+#fywixvnlin .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hogaijwviv .gt_table_body {
+#fywixvnlin .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1659,7 +1657,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-bottom-color: #D3D3D3;
 }
 
-#hogaijwviv .gt_footnotes {
+#fywixvnlin .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1673,7 +1671,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-right-color: #D3D3D3;
 }
 
-#hogaijwviv .gt_footnote {
+#fywixvnlin .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1682,7 +1680,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#hogaijwviv .gt_sourcenotes {
+#fywixvnlin .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1696,7 +1694,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-right-color: #D3D3D3;
 }
 
-#hogaijwviv .gt_sourcenote {
+#fywixvnlin .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1704,64 +1702,64 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#hogaijwviv .gt_left {
+#fywixvnlin .gt_left {
   text-align: left;
 }
 
-#hogaijwviv .gt_center {
+#fywixvnlin .gt_center {
   text-align: center;
 }
 
-#hogaijwviv .gt_right {
+#fywixvnlin .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hogaijwviv .gt_font_normal {
+#fywixvnlin .gt_font_normal {
   font-weight: normal;
 }
 
-#hogaijwviv .gt_font_bold {
+#fywixvnlin .gt_font_bold {
   font-weight: bold;
 }
 
-#hogaijwviv .gt_font_italic {
+#fywixvnlin .gt_font_italic {
   font-style: italic;
 }
 
-#hogaijwviv .gt_super {
+#fywixvnlin .gt_super {
   font-size: 65%;
 }
 
-#hogaijwviv .gt_footnote_marks {
+#fywixvnlin .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#hogaijwviv .gt_asterisk {
+#fywixvnlin .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hogaijwviv .gt_indent_1 {
+#fywixvnlin .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hogaijwviv .gt_indent_2 {
+#fywixvnlin .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hogaijwviv .gt_indent_3 {
+#fywixvnlin .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hogaijwviv .gt_indent_4 {
+#fywixvnlin .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hogaijwviv .gt_indent_5 {
+#fywixvnlin .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1880,12 +1878,12 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
 </details>
 <div class="cell-output-display">
 
-<div id="qgqmmortmi" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="nsynlprwmr" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#qgqmmortmi .gt_table {
+#nsynlprwmr .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1910,7 +1908,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-left-color: #D3D3D3;
 }
 
-#qgqmmortmi .gt_heading {
+#nsynlprwmr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1922,7 +1920,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-right-color: #D3D3D3;
 }
 
-#qgqmmortmi .gt_title {
+#nsynlprwmr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1934,7 +1932,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-bottom-width: 0;
 }
 
-#qgqmmortmi .gt_subtitle {
+#nsynlprwmr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1946,13 +1944,13 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-top-width: 0;
 }
 
-#qgqmmortmi .gt_bottom_border {
+#nsynlprwmr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qgqmmortmi .gt_col_headings {
+#nsynlprwmr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1967,7 +1965,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-right-color: #D3D3D3;
 }
 
-#qgqmmortmi .gt_col_heading {
+#nsynlprwmr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1987,7 +1985,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   overflow-x: hidden;
 }
 
-#qgqmmortmi .gt_column_spanner_outer {
+#nsynlprwmr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1999,15 +1997,15 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 4px;
 }
 
-#qgqmmortmi .gt_column_spanner_outer:first-child {
+#nsynlprwmr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qgqmmortmi .gt_column_spanner_outer:last-child {
+#nsynlprwmr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qgqmmortmi .gt_column_spanner {
+#nsynlprwmr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2019,7 +2017,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   width: 100%;
 }
 
-#qgqmmortmi .gt_group_heading {
+#nsynlprwmr .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2044,7 +2042,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   vertical-align: middle;
 }
 
-#qgqmmortmi .gt_empty_group_heading {
+#nsynlprwmr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2059,15 +2057,15 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   vertical-align: middle;
 }
 
-#qgqmmortmi .gt_from_md > :first-child {
+#nsynlprwmr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qgqmmortmi .gt_from_md > :last-child {
+#nsynlprwmr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qgqmmortmi .gt_row {
+#nsynlprwmr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2086,7 +2084,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   overflow-x: hidden;
 }
 
-#qgqmmortmi .gt_stub {
+#nsynlprwmr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2099,7 +2097,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#qgqmmortmi .gt_stub_row_group {
+#nsynlprwmr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2113,11 +2111,11 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   vertical-align: top;
 }
 
-#qgqmmortmi .gt_row_group_first td {
+#nsynlprwmr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qgqmmortmi .gt_summary_row {
+#nsynlprwmr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2127,16 +2125,16 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#qgqmmortmi .gt_first_summary_row {
+#nsynlprwmr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qgqmmortmi .gt_first_summary_row.thick {
+#nsynlprwmr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qgqmmortmi .gt_last_summary_row {
+#nsynlprwmr .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2146,7 +2144,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-bottom-color: #D3D3D3;
 }
 
-#qgqmmortmi .gt_grand_summary_row {
+#nsynlprwmr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2156,7 +2154,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#qgqmmortmi .gt_first_grand_summary_row {
+#nsynlprwmr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2166,11 +2164,11 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-top-color: #D3D3D3;
 }
 
-#qgqmmortmi .gt_striped {
+#nsynlprwmr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qgqmmortmi .gt_table_body {
+#nsynlprwmr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2179,7 +2177,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-bottom-color: #D3D3D3;
 }
 
-#qgqmmortmi .gt_footnotes {
+#nsynlprwmr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2193,7 +2191,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-right-color: #D3D3D3;
 }
 
-#qgqmmortmi .gt_footnote {
+#nsynlprwmr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2202,7 +2200,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#qgqmmortmi .gt_sourcenotes {
+#nsynlprwmr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2216,7 +2214,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-right-color: #D3D3D3;
 }
 
-#qgqmmortmi .gt_sourcenote {
+#nsynlprwmr .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2224,64 +2222,64 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#qgqmmortmi .gt_left {
+#nsynlprwmr .gt_left {
   text-align: left;
 }
 
-#qgqmmortmi .gt_center {
+#nsynlprwmr .gt_center {
   text-align: center;
 }
 
-#qgqmmortmi .gt_right {
+#nsynlprwmr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qgqmmortmi .gt_font_normal {
+#nsynlprwmr .gt_font_normal {
   font-weight: normal;
 }
 
-#qgqmmortmi .gt_font_bold {
+#nsynlprwmr .gt_font_bold {
   font-weight: bold;
 }
 
-#qgqmmortmi .gt_font_italic {
+#nsynlprwmr .gt_font_italic {
   font-style: italic;
 }
 
-#qgqmmortmi .gt_super {
+#nsynlprwmr .gt_super {
   font-size: 65%;
 }
 
-#qgqmmortmi .gt_footnote_marks {
+#nsynlprwmr .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#qgqmmortmi .gt_asterisk {
+#nsynlprwmr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qgqmmortmi .gt_indent_1 {
+#nsynlprwmr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qgqmmortmi .gt_indent_2 {
+#nsynlprwmr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qgqmmortmi .gt_indent_3 {
+#nsynlprwmr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qgqmmortmi .gt_indent_4 {
+#nsynlprwmr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qgqmmortmi .gt_indent_5 {
+#nsynlprwmr .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2330,12 +2328,12 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
 </details>
 <div class="cell-output-display">
 
-<div id="vbpczankxr" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ibiokurgqt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#vbpczankxr .gt_table {
+#ibiokurgqt .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2360,7 +2358,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-left-color: #D3D3D3;
 }
 
-#vbpczankxr .gt_heading {
+#ibiokurgqt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2372,7 +2370,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-right-color: #D3D3D3;
 }
 
-#vbpczankxr .gt_title {
+#ibiokurgqt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2384,7 +2382,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-bottom-width: 0;
 }
 
-#vbpczankxr .gt_subtitle {
+#ibiokurgqt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2396,13 +2394,13 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-top-width: 0;
 }
 
-#vbpczankxr .gt_bottom_border {
+#ibiokurgqt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vbpczankxr .gt_col_headings {
+#ibiokurgqt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2417,7 +2415,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-right-color: #D3D3D3;
 }
 
-#vbpczankxr .gt_col_heading {
+#ibiokurgqt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2437,7 +2435,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   overflow-x: hidden;
 }
 
-#vbpczankxr .gt_column_spanner_outer {
+#ibiokurgqt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2449,15 +2447,15 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 4px;
 }
 
-#vbpczankxr .gt_column_spanner_outer:first-child {
+#ibiokurgqt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vbpczankxr .gt_column_spanner_outer:last-child {
+#ibiokurgqt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vbpczankxr .gt_column_spanner {
+#ibiokurgqt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2469,7 +2467,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   width: 100%;
 }
 
-#vbpczankxr .gt_group_heading {
+#ibiokurgqt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2494,7 +2492,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   vertical-align: middle;
 }
 
-#vbpczankxr .gt_empty_group_heading {
+#ibiokurgqt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2509,15 +2507,15 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   vertical-align: middle;
 }
 
-#vbpczankxr .gt_from_md > :first-child {
+#ibiokurgqt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vbpczankxr .gt_from_md > :last-child {
+#ibiokurgqt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vbpczankxr .gt_row {
+#ibiokurgqt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2536,7 +2534,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   overflow-x: hidden;
 }
 
-#vbpczankxr .gt_stub {
+#ibiokurgqt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2549,7 +2547,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#vbpczankxr .gt_stub_row_group {
+#ibiokurgqt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2563,11 +2561,11 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   vertical-align: top;
 }
 
-#vbpczankxr .gt_row_group_first td {
+#ibiokurgqt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vbpczankxr .gt_summary_row {
+#ibiokurgqt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2577,16 +2575,16 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#vbpczankxr .gt_first_summary_row {
+#ibiokurgqt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vbpczankxr .gt_first_summary_row.thick {
+#ibiokurgqt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vbpczankxr .gt_last_summary_row {
+#ibiokurgqt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2596,7 +2594,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-bottom-color: #D3D3D3;
 }
 
-#vbpczankxr .gt_grand_summary_row {
+#ibiokurgqt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2606,7 +2604,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#vbpczankxr .gt_first_grand_summary_row {
+#ibiokurgqt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2616,11 +2614,11 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-top-color: #D3D3D3;
 }
 
-#vbpczankxr .gt_striped {
+#ibiokurgqt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vbpczankxr .gt_table_body {
+#ibiokurgqt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2629,7 +2627,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-bottom-color: #D3D3D3;
 }
 
-#vbpczankxr .gt_footnotes {
+#ibiokurgqt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2643,7 +2641,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-right-color: #D3D3D3;
 }
 
-#vbpczankxr .gt_footnote {
+#ibiokurgqt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2652,7 +2650,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#vbpczankxr .gt_sourcenotes {
+#ibiokurgqt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2666,7 +2664,7 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   border-right-color: #D3D3D3;
 }
 
-#vbpczankxr .gt_sourcenote {
+#ibiokurgqt .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2674,64 +2672,64 @@ TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice
   padding-right: 5px;
 }
 
-#vbpczankxr .gt_left {
+#ibiokurgqt .gt_left {
   text-align: left;
 }
 
-#vbpczankxr .gt_center {
+#ibiokurgqt .gt_center {
   text-align: center;
 }
 
-#vbpczankxr .gt_right {
+#ibiokurgqt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vbpczankxr .gt_font_normal {
+#ibiokurgqt .gt_font_normal {
   font-weight: normal;
 }
 
-#vbpczankxr .gt_font_bold {
+#ibiokurgqt .gt_font_bold {
   font-weight: bold;
 }
 
-#vbpczankxr .gt_font_italic {
+#ibiokurgqt .gt_font_italic {
   font-style: italic;
 }
 
-#vbpczankxr .gt_super {
+#ibiokurgqt .gt_super {
   font-size: 65%;
 }
 
-#vbpczankxr .gt_footnote_marks {
+#ibiokurgqt .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#vbpczankxr .gt_asterisk {
+#ibiokurgqt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vbpczankxr .gt_indent_1 {
+#ibiokurgqt .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vbpczankxr .gt_indent_2 {
+#ibiokurgqt .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vbpczankxr .gt_indent_3 {
+#ibiokurgqt .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vbpczankxr .gt_indent_4 {
+#ibiokurgqt .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vbpczankxr .gt_indent_5 {
+#ibiokurgqt .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3221,284 +3219,282 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a>*2. OLS Linear regression*</span>
 <span id="cb16-177"><a href="#cb16-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a>I wanted to understand what factors determine the number of ships sited in a given month. To do this I summed each hex value to determine the amount of vessels registered per month. I split these up to north and south and ran OLS linear regression with sea ice anomaly, year, and season (first or last half of the year) as my predicting variables.</span>
-<span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a>I then combined the data sets and ran an OLS linear regression which now included region (north or south) as a predictor of monthly ship numbers.</span>
+<span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a>I wanted to understand what factors determine the number of ships sited in a given month. To do this I summed each hex value to determine the number of vessels registered per month. I split these up to north and south and ran OLS linear regression with sea ice anomaly, year, and season (first or last half of the year) as my predicting variables.</span>
+<span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a>I then combined the data sets and ran an OLS linear regression which now included region (north or south) as a predictor of monthly ship numbers.</span>
+<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a>Then finally I included an interaction to see if the effect of the season depends on the region.</span>
 <span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a>Then finally I included an interaction to see if the effect of the season depends on the region.</span>
+<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a>**My Results**</span>
 <span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a>**My Results**</span>
+<span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a>**Decomposition**</span>
 <span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a>**Decomposition**</span>
-<span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a>all_years<span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, df_geom) <span class="sc">|&gt;</span></span>
-<span id="cb16-192"><a href="#cb16-192" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="st">"Cycle"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb16-193"><a href="#cb16-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hexID =</span> <span class="fu">str_sub</span>(Cycle, <span class="dv">9</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Cycle =</span> <span class="fu">str_sub</span>(Cycle, <span class="dv">1</span>, <span class="dv">7</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>hexID) <span class="sc">|&gt;</span></span>
-<span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">'Cycle'</span>,</span>
-<span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> <span class="st">'nMMSI_A'</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(<span class="sc">~</span><span class="fu">replace</span>(., <span class="fu">is.na</span>(.), <span class="dv">0</span>))</span>
-<span id="cb16-199"><a href="#cb16-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-200"><a href="#cb16-200" aria-hidden="true" tabindex="-1"></a>south <span class="ot">&lt;-</span> all_years <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">3500</span>)</span>
-<span id="cb16-201"><a href="#cb16-201" aria-hidden="true" tabindex="-1"></a>north <span class="ot">&lt;-</span> all_years <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">3501</span><span class="sc">:</span><span class="dv">6553</span>)</span>
-<span id="cb16-202"><a href="#cb16-202" aria-hidden="true" tabindex="-1"></a>south <span class="ot">&lt;-</span> <span class="fu">st_drop_geometry</span>(south)</span>
-<span id="cb16-203"><a href="#cb16-203" aria-hidden="true" tabindex="-1"></a>yearly_totals <span class="ot">&lt;-</span> <span class="fu">colSums</span>(south, <span class="at">na.rm=</span>T)</span>
-<span id="cb16-204"><a href="#cb16-204" aria-hidden="true" tabindex="-1"></a>traffic_ts_south <span class="ot">&lt;-</span> <span class="fu">ts</span>(yearly_totals, <span class="at">frequency=</span><span class="dv">4</span>, <span class="at">start=</span><span class="fu">c</span>(<span class="dv">2015</span>,<span class="dv">1</span>))</span>
+<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-189"><a href="#cb16-189" aria-hidden="true" tabindex="-1"></a>all_years<span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, df_geom) <span class="sc">|&gt;</span></span>
+<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="st">"Cycle"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hexID =</span> <span class="fu">str_sub</span>(Cycle, <span class="dv">9</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb16-192"><a href="#cb16-192" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Cycle =</span> <span class="fu">str_sub</span>(Cycle, <span class="dv">1</span>, <span class="dv">7</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-193"><a href="#cb16-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>hexID) <span class="sc">|&gt;</span></span>
+<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">'Cycle'</span>,</span>
+<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> <span class="st">'nMMSI_A'</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(<span class="sc">~</span><span class="fu">replace</span>(., <span class="fu">is.na</span>(.), <span class="dv">0</span>))</span>
+<span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a>south <span class="ot">&lt;-</span> all_years <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">3500</span>)</span>
+<span id="cb16-199"><a href="#cb16-199" aria-hidden="true" tabindex="-1"></a>north <span class="ot">&lt;-</span> all_years <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">3501</span><span class="sc">:</span><span class="dv">6553</span>)</span>
+<span id="cb16-200"><a href="#cb16-200" aria-hidden="true" tabindex="-1"></a>south <span class="ot">&lt;-</span> <span class="fu">st_drop_geometry</span>(south)</span>
+<span id="cb16-201"><a href="#cb16-201" aria-hidden="true" tabindex="-1"></a>yearly_totals <span class="ot">&lt;-</span> <span class="fu">colSums</span>(south, <span class="at">na.rm=</span>T)</span>
+<span id="cb16-202"><a href="#cb16-202" aria-hidden="true" tabindex="-1"></a>traffic_ts_south <span class="ot">&lt;-</span> <span class="fu">ts</span>(yearly_totals, <span class="at">frequency=</span><span class="dv">4</span>, <span class="at">start=</span><span class="fu">c</span>(<span class="dv">2015</span>,<span class="dv">1</span>))</span>
+<span id="cb16-203"><a href="#cb16-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-204"><a href="#cb16-204" aria-hidden="true" tabindex="-1"></a><span class="co">#plot.ts(traffic_ts_south)</span></span>
 <span id="cb16-205"><a href="#cb16-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-206"><a href="#cb16-206" aria-hidden="true" tabindex="-1"></a><span class="co">#plot.ts(traffic_ts_south)</span></span>
+<span id="cb16-206"><a href="#cb16-206" aria-hidden="true" tabindex="-1"></a>traffic_ts_south <span class="ot">&lt;-</span> <span class="fu">as_tsibble</span>(traffic_ts_south)</span>
 <span id="cb16-207"><a href="#cb16-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-208"><a href="#cb16-208" aria-hidden="true" tabindex="-1"></a>traffic_ts_south <span class="ot">&lt;-</span> <span class="fu">as_tsibble</span>(traffic_ts_south)</span>
-<span id="cb16-209"><a href="#cb16-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-210"><a href="#cb16-210" aria-hidden="true" tabindex="-1"></a>south_time <span class="ot">&lt;-</span> traffic_ts_south  <span class="sc">%&gt;%</span></span>
-<span id="cb16-211"><a href="#cb16-211" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model</span>(</span>
-<span id="cb16-212"><a href="#cb16-212" aria-hidden="true" tabindex="-1"></a>    <span class="fu">classical_decomposition</span>(value, <span class="at">type =</span> <span class="st">"additive"</span>)</span>
-<span id="cb16-213"><a href="#cb16-213" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb16-214"><a href="#cb16-214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb16-215"><a href="#cb16-215" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb16-216"><a href="#cb16-216" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Decomposition of Ship Traffic in the Arctic: Bering sea from 2015-2021"</span>)</span>
-<span id="cb16-217"><a href="#cb16-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-218"><a href="#cb16-218" aria-hidden="true" tabindex="-1"></a>north <span class="ot">&lt;-</span> <span class="fu">st_drop_geometry</span>(north)</span>
-<span id="cb16-219"><a href="#cb16-219" aria-hidden="true" tabindex="-1"></a>yearly_totals <span class="ot">&lt;-</span> <span class="fu">colSums</span>(north, <span class="at">na.rm=</span>T)</span>
-<span id="cb16-220"><a href="#cb16-220" aria-hidden="true" tabindex="-1"></a>traffic_ts_north<span class="ot">&lt;-</span> <span class="fu">ts</span>(yearly_totals, <span class="at">frequency=</span><span class="dv">4</span>, <span class="at">start=</span><span class="fu">c</span>(<span class="dv">2015</span>,<span class="dv">1</span>))</span>
-<span id="cb16-221"><a href="#cb16-221" aria-hidden="true" tabindex="-1"></a><span class="co">#plot.ts(traffic_ts_north)</span></span>
+<span id="cb16-208"><a href="#cb16-208" aria-hidden="true" tabindex="-1"></a>south_time <span class="ot">&lt;-</span> traffic_ts_south  <span class="sc">%&gt;%</span></span>
+<span id="cb16-209"><a href="#cb16-209" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model</span>(</span>
+<span id="cb16-210"><a href="#cb16-210" aria-hidden="true" tabindex="-1"></a>    <span class="fu">classical_decomposition</span>(value, <span class="at">type =</span> <span class="st">"additive"</span>)</span>
+<span id="cb16-211"><a href="#cb16-211" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb16-212"><a href="#cb16-212" aria-hidden="true" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb16-213"><a href="#cb16-213" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
+<span id="cb16-214"><a href="#cb16-214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Decomposition of Ship Traffic: Bering Sea from 2015-2021"</span>)</span>
+<span id="cb16-215"><a href="#cb16-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-216"><a href="#cb16-216" aria-hidden="true" tabindex="-1"></a>north <span class="ot">&lt;-</span> <span class="fu">st_drop_geometry</span>(north)</span>
+<span id="cb16-217"><a href="#cb16-217" aria-hidden="true" tabindex="-1"></a>yearly_totals <span class="ot">&lt;-</span> <span class="fu">colSums</span>(north, <span class="at">na.rm=</span>T)</span>
+<span id="cb16-218"><a href="#cb16-218" aria-hidden="true" tabindex="-1"></a>traffic_ts_north<span class="ot">&lt;-</span> <span class="fu">ts</span>(yearly_totals, <span class="at">frequency=</span><span class="dv">4</span>, <span class="at">start=</span><span class="fu">c</span>(<span class="dv">2015</span>,<span class="dv">1</span>))</span>
+<span id="cb16-219"><a href="#cb16-219" aria-hidden="true" tabindex="-1"></a><span class="co">#plot.ts(traffic_ts_north)</span></span>
+<span id="cb16-220"><a href="#cb16-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-221"><a href="#cb16-221" aria-hidden="true" tabindex="-1"></a>traffic_ts_north <span class="ot">&lt;-</span> <span class="fu">as_tsibble</span>(traffic_ts_north)</span>
 <span id="cb16-222"><a href="#cb16-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-223"><a href="#cb16-223" aria-hidden="true" tabindex="-1"></a>traffic_ts_north <span class="ot">&lt;-</span> <span class="fu">as_tsibble</span>(traffic_ts_north)</span>
-<span id="cb16-224"><a href="#cb16-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-225"><a href="#cb16-225" aria-hidden="true" tabindex="-1"></a>north_time <span class="ot">&lt;-</span> traffic_ts_north  <span class="sc">%&gt;%</span></span>
-<span id="cb16-226"><a href="#cb16-226" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model</span>(</span>
-<span id="cb16-227"><a href="#cb16-227" aria-hidden="true" tabindex="-1"></a>    <span class="fu">classical_decomposition</span>(value, <span class="at">type =</span> <span class="st">"additive"</span>)</span>
-<span id="cb16-228"><a href="#cb16-228" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb16-229"><a href="#cb16-229" aria-hidden="true" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb16-230"><a href="#cb16-230" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb16-231"><a href="#cb16-231" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Decomposition of Ship Traffic in the Arctic: Northern Bering and Southern Chukchi and Beaufort Seas from 2015-2021"</span>)</span>
-<span id="cb16-232"><a href="#cb16-232" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-233"><a href="#cb16-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-236"><a href="#cb16-236" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-237"><a href="#cb16-237" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb16-238"><a href="#cb16-238" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: true</span></span>
-<span id="cb16-239"><a href="#cb16-239" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb16-240"><a href="#cb16-240" aria-hidden="true" tabindex="-1"></a>north_time</span>
-<span id="cb16-241"><a href="#cb16-241" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-242"><a href="#cb16-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-245"><a href="#cb16-245" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-246"><a href="#cb16-246" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb16-247"><a href="#cb16-247" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: true</span></span>
-<span id="cb16-248"><a href="#cb16-248" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb16-249"><a href="#cb16-249" aria-hidden="true" tabindex="-1"></a>south_time</span>
-<span id="cb16-250"><a href="#cb16-250" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-223"><a href="#cb16-223" aria-hidden="true" tabindex="-1"></a>north_time <span class="ot">&lt;-</span> traffic_ts_north  <span class="sc">%&gt;%</span></span>
+<span id="cb16-224"><a href="#cb16-224" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model</span>(</span>
+<span id="cb16-225"><a href="#cb16-225" aria-hidden="true" tabindex="-1"></a>    <span class="fu">classical_decomposition</span>(value, <span class="at">type =</span> <span class="st">"additive"</span>)</span>
+<span id="cb16-226"><a href="#cb16-226" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb16-227"><a href="#cb16-227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb16-228"><a href="#cb16-228" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
+<span id="cb16-229"><a href="#cb16-229" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Decomposition of Ship Traffic: Northern Bering and Southern Chukchi from 2015-2021"</span>)</span>
+<span id="cb16-230"><a href="#cb16-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-231"><a href="#cb16-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-234"><a href="#cb16-234" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-235"><a href="#cb16-235" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb16-236"><a href="#cb16-236" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: true</span></span>
+<span id="cb16-237"><a href="#cb16-237" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb16-238"><a href="#cb16-238" aria-hidden="true" tabindex="-1"></a>north_time</span>
+<span id="cb16-239"><a href="#cb16-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-240"><a href="#cb16-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-243"><a href="#cb16-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-244"><a href="#cb16-244" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb16-245"><a href="#cb16-245" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: true</span></span>
+<span id="cb16-246"><a href="#cb16-246" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb16-247"><a href="#cb16-247" aria-hidden="true" tabindex="-1"></a>south_time</span>
+<span id="cb16-248"><a href="#cb16-248" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-249"><a href="#cb16-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-250"><a href="#cb16-250" aria-hidden="true" tabindex="-1"></a>From these two figures you can see the different ways seasonal and yearly trends play in the northern and southern regions of our data set. The number of ships seen in the northern region, is much more dependent on the season than the southern. This makes sense, because the ice is much denser in the earlier half of the year. We can see from the visualization of our data, it is rare to see many ships travel far north in January and April. This also plays into the intuition why the yearly trend for the northern portion of the data is stronger. As sea ice melts, the area where we will see more and more ship traffic will be the northern polar areas where it was once barricaded by ice.</span>
 <span id="cb16-251"><a href="#cb16-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-252"><a href="#cb16-252" aria-hidden="true" tabindex="-1"></a>From these two figures you can see the different ways seasonal and yearly trends play in the northern and southern regions of our data set. The number of ships seen in the northern region, is much more dependent on the season than the southern. This makes sense, because the ice is much denser in the earlier half of the year. We can see from the visualization of our data, it is rare to see many ships travel far north in January and April. This also plays into the intuition why the yearly trend for the northern portion of the data is stronger. As sea ice melts, the area where we will see more and more ship traffic will be the northern polar areas where it was once barricaded by ice.</span>
+<span id="cb16-252"><a href="#cb16-252" aria-hidden="true" tabindex="-1"></a>**Multiple Linear Regression**</span>
 <span id="cb16-253"><a href="#cb16-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-254"><a href="#cb16-254" aria-hidden="true" tabindex="-1"></a>**Multiple Linear Regression**</span>
-<span id="cb16-255"><a href="#cb16-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-258"><a href="#cb16-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-259"><a href="#cb16-259" aria-hidden="true" tabindex="-1"></a>july_anomaly <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">file.path</span>(rootdir, <span class="st">"july_anomaly.csv"</span>)) <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">37</span><span class="sc">:</span><span class="dv">42</span>) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(Date, X.SIA.anomaly)</span>
-<span id="cb16-260"><a href="#cb16-260" aria-hidden="true" tabindex="-1"></a>oct_anomaly <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">file.path</span>(rootdir, <span class="st">"oct_anomaly.csv"</span>)) <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">37</span><span class="sc">:</span><span class="dv">42</span>) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(Date, X.SIA.anomaly)</span>
-<span id="cb16-261"><a href="#cb16-261" aria-hidden="true" tabindex="-1"></a>january_anomaly <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">file.path</span>(rootdir, <span class="st">"january_anomaly.csv"</span>)) <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">37</span><span class="sc">:</span><span class="dv">42</span>) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(Date, X.SIA.anomaly)</span>
-<span id="cb16-262"><a href="#cb16-262" aria-hidden="true" tabindex="-1"></a>april_anomaly <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">file.path</span>(rootdir, <span class="st">"april_anomaly.csv"</span>)) <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">37</span><span class="sc">:</span><span class="dv">42</span>) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(Date, X.SIA.anomaly)</span>
+<span id="cb16-256"><a href="#cb16-256" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-257"><a href="#cb16-257" aria-hidden="true" tabindex="-1"></a>july_anomaly <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">file.path</span>(rootdir, <span class="st">"july_anomaly.csv"</span>)) <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">37</span><span class="sc">:</span><span class="dv">42</span>) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(Date, X.SIA.anomaly)</span>
+<span id="cb16-258"><a href="#cb16-258" aria-hidden="true" tabindex="-1"></a>oct_anomaly <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">file.path</span>(rootdir, <span class="st">"oct_anomaly.csv"</span>)) <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">37</span><span class="sc">:</span><span class="dv">42</span>) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(Date, X.SIA.anomaly)</span>
+<span id="cb16-259"><a href="#cb16-259" aria-hidden="true" tabindex="-1"></a>january_anomaly <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">file.path</span>(rootdir, <span class="st">"january_anomaly.csv"</span>)) <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">37</span><span class="sc">:</span><span class="dv">42</span>) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(Date, X.SIA.anomaly)</span>
+<span id="cb16-260"><a href="#cb16-260" aria-hidden="true" tabindex="-1"></a>april_anomaly <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">file.path</span>(rootdir, <span class="st">"april_anomaly.csv"</span>)) <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">37</span><span class="sc">:</span><span class="dv">42</span>) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(Date, X.SIA.anomaly)</span>
+<span id="cb16-261"><a href="#cb16-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-262"><a href="#cb16-262" aria-hidden="true" tabindex="-1"></a>anomaly_south <span class="ot">&lt;-</span> <span class="fu">rbind</span>(july_anomaly,oct_anomaly,april_anomaly,january_anomaly) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(Date) <span class="sc">|&gt;</span> <span class="fu">cbind</span>(traffic_ts_south) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>index) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Extent =</span> X.SIA.anomaly, <span class="at">Value =</span> value) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Date =</span> lubridate<span class="sc">::</span><span class="fu">ym</span>(Date)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Year =</span> lubridate<span class="sc">::</span><span class="fu">year</span>(Date), <span class="at">Month =</span> lubridate<span class="sc">::</span><span class="fu">month</span>(Date)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Month =</span> <span class="fu">as.factor</span>(Month)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="fu">ifelse</span>(Month <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> Month <span class="sc">==</span> <span class="dv">4</span>, <span class="st">"First_Half"</span>, <span class="st">"Last_half"</span>)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="fu">as.factor</span>(Season))</span>
 <span id="cb16-263"><a href="#cb16-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-264"><a href="#cb16-264" aria-hidden="true" tabindex="-1"></a>anomaly_south <span class="ot">&lt;-</span> <span class="fu">rbind</span>(july_anomaly,oct_anomaly,april_anomaly,january_anomaly) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(Date) <span class="sc">|&gt;</span> <span class="fu">cbind</span>(traffic_ts_south) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>index) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Extent =</span> X.SIA.anomaly, <span class="at">Value =</span> value) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Date =</span> lubridate<span class="sc">::</span><span class="fu">ym</span>(Date)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Year =</span> lubridate<span class="sc">::</span><span class="fu">year</span>(Date), <span class="at">Month =</span> lubridate<span class="sc">::</span><span class="fu">month</span>(Date)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Month =</span> <span class="fu">as.factor</span>(Month)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="fu">ifelse</span>(Month <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> Month <span class="sc">==</span> <span class="dv">4</span>, <span class="st">"First_Half"</span>, <span class="st">"Last_half"</span>)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="fu">as.factor</span>(Season))</span>
-<span id="cb16-265"><a href="#cb16-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-266"><a href="#cb16-266" aria-hidden="true" tabindex="-1"></a>anomaly_north <span class="ot">&lt;-</span> <span class="fu">rbind</span>(july_anomaly,oct_anomaly,april_anomaly,january_anomaly) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(Date) <span class="sc">|&gt;</span> <span class="fu">cbind</span>(traffic_ts_north) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>index) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Extent =</span> X.SIA.anomaly, <span class="at">Value =</span> value) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Date =</span> lubridate<span class="sc">::</span><span class="fu">ym</span>(Date)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Year =</span> lubridate<span class="sc">::</span><span class="fu">year</span>(Date), <span class="at">Month =</span> lubridate<span class="sc">::</span><span class="fu">month</span>(Date)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Month =</span> <span class="fu">as.factor</span>(Month)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="fu">ifelse</span>(Month <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> Month <span class="sc">==</span> <span class="dv">4</span>, <span class="st">"First_Half"</span>, <span class="st">"Last_half"</span>)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="fu">as.factor</span>(Season))</span>
-<span id="cb16-267"><a href="#cb16-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-264"><a href="#cb16-264" aria-hidden="true" tabindex="-1"></a>anomaly_north <span class="ot">&lt;-</span> <span class="fu">rbind</span>(july_anomaly,oct_anomaly,april_anomaly,january_anomaly) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(Date) <span class="sc">|&gt;</span> <span class="fu">cbind</span>(traffic_ts_north) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>index) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Extent =</span> X.SIA.anomaly, <span class="at">Value =</span> value) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Date =</span> lubridate<span class="sc">::</span><span class="fu">ym</span>(Date)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Year =</span> lubridate<span class="sc">::</span><span class="fu">year</span>(Date), <span class="at">Month =</span> lubridate<span class="sc">::</span><span class="fu">month</span>(Date)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Month =</span> <span class="fu">as.factor</span>(Month)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="fu">ifelse</span>(Month <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> Month <span class="sc">==</span> <span class="dv">4</span>, <span class="st">"First_Half"</span>, <span class="st">"Last_half"</span>)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Season =</span> <span class="fu">as.factor</span>(Season))</span>
+<span id="cb16-265"><a href="#cb16-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-266"><a href="#cb16-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-267"><a href="#cb16-267" aria-hidden="true" tabindex="-1"></a>To begin, I ran regression to predict monthly ship observations in the southern region of my data set (see appendix). The only predictor that had a significant effect on amount of ships seen monthly in the southern region of our data set was year. The intercept was nonsensical but the model predicts that each year ship sightings grow by an estimated 1,492 ships.</span>
 <span id="cb16-268"><a href="#cb16-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-269"><a href="#cb16-269" aria-hidden="true" tabindex="-1"></a>To begin, I ran regression to predict monthly ship observations in the southern region of my data set (see appendix). The only predictor that had a significant effect on amount of ships seen monthly in the southern region of our data set was year. The intercept was nonsensical but the model predicts that each year ship sightings grow by an estimated 1,492 ships.</span>
+<span id="cb16-269"><a href="#cb16-269" aria-hidden="true" tabindex="-1"></a>I then ran regression to predict monthly ship observations in the northern region as you can see below.</span>
 <span id="cb16-270"><a href="#cb16-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-271"><a href="#cb16-271" aria-hidden="true" tabindex="-1"></a>I then ran regression to predict monthly ship observations in the northern region as you can see below.</span>
-<span id="cb16-272"><a href="#cb16-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-271"><a href="#cb16-271" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb16-272"><a href="#cb16-272" aria-hidden="true" tabindex="-1"></a>NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice Extent + \epsilon_i</span>
 <span id="cb16-273"><a href="#cb16-273" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb16-274"><a href="#cb16-274" aria-hidden="true" tabindex="-1"></a>NorthernShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * Ice Extent + \epsilon_i</span>
-<span id="cb16-275"><a href="#cb16-275" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb16-276"><a href="#cb16-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-279"><a href="#cb16-279" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-280"><a href="#cb16-280" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> <span class="fu">abs</span>(Extent) <span class="sc">+</span> Year <span class="sc">+</span> Season, <span class="at">data =</span> anomaly_north)</span>
-<span id="cb16-281"><a href="#cb16-281" aria-hidden="true" tabindex="-1"></a>mod1 <span class="sc">%&gt;%</span></span>
-<span id="cb16-282"><a href="#cb16-282" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_regression</span>(<span class="at">intercept=</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-283"><a href="#cb16-283" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_gt</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb16-284"><a href="#cb16-284" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">tab_source_note</span>(gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"</span>))</span>
-<span id="cb16-285"><a href="#cb16-285" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-274"><a href="#cb16-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-277"><a href="#cb16-277" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-278"><a href="#cb16-278" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> <span class="fu">abs</span>(Extent) <span class="sc">+</span> Year <span class="sc">+</span> Season, <span class="at">data =</span> anomaly_north)</span>
+<span id="cb16-279"><a href="#cb16-279" aria-hidden="true" tabindex="-1"></a>mod1 <span class="sc">%&gt;%</span></span>
+<span id="cb16-280"><a href="#cb16-280" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_regression</span>(<span class="at">intercept=</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-281"><a href="#cb16-281" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb16-282"><a href="#cb16-282" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">tab_source_note</span>(gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"</span>))</span>
+<span id="cb16-283"><a href="#cb16-283" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-284"><a href="#cb16-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-285"><a href="#cb16-285" aria-hidden="true" tabindex="-1"></a>**Adjusted R-squared: 0.929014**</span>
 <span id="cb16-286"><a href="#cb16-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-287"><a href="#cb16-287" aria-hidden="true" tabindex="-1"></a>**Adjusted R-squared: 0.929014**</span>
+<span id="cb16-287"><a href="#cb16-287" aria-hidden="true" tabindex="-1"></a>**Interpretation**</span>
 <span id="cb16-288"><a href="#cb16-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-289"><a href="#cb16-289" aria-hidden="true" tabindex="-1"></a>**Interpretation**</span>
+<span id="cb16-289"><a href="#cb16-289" aria-hidden="true" tabindex="-1"></a>**Coefficients:** Unlike the southern region, the northern region has more significant predictors. This makes sense from what we saw in our time series decomposition. For each unit increase in ice extent (1 million sq km farther from the mean) the model predicts to see 2,346 more ships holding year fixed and season fixed. For each year increase, holding extent and season fixed, ship sightings grow by an estimated 2,346. And finally, the last half of the year adds a predicted increase of 15,338 ship sightings compared to the beginning half of the year holding fixed the year and ice extent. Next I combined my southern and northern observations. And ran regression with all of my predictors and no interactions (See appendix)</span>
 <span id="cb16-290"><a href="#cb16-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-291"><a href="#cb16-291" aria-hidden="true" tabindex="-1"></a>**Coefficients:** Unlike the southern region, the northern region has more significant predictors. This makes sense from what we saw in our time series decomposition. For each unit increase in ice extent (1 million sq km farther from the mean) the model predicts to see 2,346 more ships holding year fixed and season fixed. For each year increase, holding extent and season fixed, ship sightings grow by an estimated 2,346. And finally, the last half of the year adds a predicted increase of 15,338 ship sightings compared to the beginning half of the year holding fixed the year and ice extent. Next I combined my southern and northern observations. And ran regression with all of my predictors and no interactions (See appendix)</span>
-<span id="cb16-292"><a href="#cb16-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-295"><a href="#cb16-295" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-296"><a href="#cb16-296" aria-hidden="true" tabindex="-1"></a>anomaly_south <span class="ot">&lt;-</span> anomaly_south <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Region =</span> <span class="st">"south"</span>)</span>
-<span id="cb16-297"><a href="#cb16-297" aria-hidden="true" tabindex="-1"></a>anomaly_north <span class="ot">&lt;-</span>  anomaly_north <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Region =</span> <span class="st">"north"</span>)</span>
-<span id="cb16-298"><a href="#cb16-298" aria-hidden="true" tabindex="-1"></a>all_anomaly_dat <span class="ot">&lt;-</span> <span class="fu">rbind</span>(anomaly_south, anomaly_north) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Region =</span> <span class="fu">as.factor</span>(Region))</span>
-<span id="cb16-299"><a href="#cb16-299" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-293"><a href="#cb16-293" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-294"><a href="#cb16-294" aria-hidden="true" tabindex="-1"></a>anomaly_south <span class="ot">&lt;-</span> anomaly_south <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Region =</span> <span class="st">"south"</span>)</span>
+<span id="cb16-295"><a href="#cb16-295" aria-hidden="true" tabindex="-1"></a>anomaly_north <span class="ot">&lt;-</span>  anomaly_north <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Region =</span> <span class="st">"north"</span>)</span>
+<span id="cb16-296"><a href="#cb16-296" aria-hidden="true" tabindex="-1"></a>all_anomaly_dat <span class="ot">&lt;-</span> <span class="fu">rbind</span>(anomaly_south, anomaly_north) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Region =</span> <span class="fu">as.factor</span>(Region))</span>
+<span id="cb16-297"><a href="#cb16-297" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-298"><a href="#cb16-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-299"><a href="#cb16-299" aria-hidden="true" tabindex="-1"></a>**Understanding the effect season has on the each region** </span>
 <span id="cb16-300"><a href="#cb16-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-301"><a href="#cb16-301" aria-hidden="true" tabindex="-1"></a>**Understanding the effect season has on the each region** </span>
-<span id="cb16-302"><a href="#cb16-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-303"><a href="#cb16-303" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb16-304"><a href="#cb16-304" aria-hidden="true" tabindex="-1"></a>TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +</span>
-<span id="cb16-305"><a href="#cb16-305" aria-hidden="true" tabindex="-1"></a>\beta_3 * Season_i * Region_i + \epsilon_i</span>
-<span id="cb16-306"><a href="#cb16-306" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb16-307"><a href="#cb16-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-310"><a href="#cb16-310" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-311"><a href="#cb16-311" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> Region <span class="sc">+</span>Season <span class="sc">+</span> Region<span class="sc">:</span>Season, <span class="at">data =</span> all_anomaly_dat)</span>
-<span id="cb16-312"><a href="#cb16-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-313"><a href="#cb16-313" aria-hidden="true" tabindex="-1"></a>mod3 <span class="sc">%&gt;%</span></span>
-<span id="cb16-314"><a href="#cb16-314" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_regression</span>(<span class="at">intercept=</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-315"><a href="#cb16-315" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_gt</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb16-316"><a href="#cb16-316" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">tab_source_note</span>(gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"</span>))</span>
-<span id="cb16-317"><a href="#cb16-317" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-301"><a href="#cb16-301" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb16-302"><a href="#cb16-302" aria-hidden="true" tabindex="-1"></a>TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +</span>
+<span id="cb16-303"><a href="#cb16-303" aria-hidden="true" tabindex="-1"></a>\beta_3 * Season_i * Region_i + \epsilon_i</span>
+<span id="cb16-304"><a href="#cb16-304" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb16-305"><a href="#cb16-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-308"><a href="#cb16-308" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-309"><a href="#cb16-309" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> Region <span class="sc">+</span>Season <span class="sc">+</span> Region<span class="sc">:</span>Season, <span class="at">data =</span> all_anomaly_dat)</span>
+<span id="cb16-310"><a href="#cb16-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-311"><a href="#cb16-311" aria-hidden="true" tabindex="-1"></a>mod3 <span class="sc">%&gt;%</span></span>
+<span id="cb16-312"><a href="#cb16-312" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_regression</span>(<span class="at">intercept=</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-313"><a href="#cb16-313" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-314"><a href="#cb16-314" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">tab_source_note</span>(gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"</span>))</span>
+<span id="cb16-315"><a href="#cb16-315" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-316"><a href="#cb16-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-317"><a href="#cb16-317" aria-hidden="true" tabindex="-1"></a>**Adjusted R-squared: 0.9529827**</span>
 <span id="cb16-318"><a href="#cb16-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-319"><a href="#cb16-319" aria-hidden="true" tabindex="-1"></a>**Adjusted R-squared: 0.9529827**</span>
+<span id="cb16-319"><a href="#cb16-319" aria-hidden="true" tabindex="-1"></a>**Coefficients:** The intercept: 3,867 ships is the predicted number of ship sightings in the northern region in the first half of the year. 58,290 is the difference in predicted ship sightings between the north and south. 14,255 is the predicted difference in ship sightings between the first and last half of the year. From the interaction coefficient, if we wanted to determine the number of predicted ship sightings in the south in the last half of the year we would calculate</span>
 <span id="cb16-320"><a href="#cb16-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-321"><a href="#cb16-321" aria-hidden="true" tabindex="-1"></a>**Coefficients:** The intercept: 3,867 ships is the predicted number of ship sightings in the northern region in the first half of the year. 58,290 is the difference in predicted ship sightings between the north and south. 14,255 is the predicted difference in ship sightings between the first and last half of the year. From the interaction coefficient, if we wanted to determine the number of predicted ship sightings in the south in the last half of the year we would calculate</span>
-<span id="cb16-322"><a href="#cb16-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-323"><a href="#cb16-323" aria-hidden="true" tabindex="-1"></a>$$ShipSightings = 3,867 + 58,290 + 14,255 - 16,002$$ </span>
-<span id="cb16-324"><a href="#cb16-324" aria-hidden="true" tabindex="-1"></a>$$ 60,410 $$</span>
-<span id="cb16-325"><a href="#cb16-325" aria-hidden="true" tabindex="-1"></a>An adjusted R-squared value of .9529 means that season and region alone contribute to about 95% percent of the variability in ship sightings.</span>
+<span id="cb16-321"><a href="#cb16-321" aria-hidden="true" tabindex="-1"></a>$$ShipSightings = 3,867 + 58,290 + 14,255 - 16,002$$ </span>
+<span id="cb16-322"><a href="#cb16-322" aria-hidden="true" tabindex="-1"></a>$$ 60,410 $$</span>
+<span id="cb16-323"><a href="#cb16-323" aria-hidden="true" tabindex="-1"></a>An adjusted R-squared value of .9529 means that season and region alone contribute to about 95% percent of the variability in ship sightings.</span>
+<span id="cb16-324"><a href="#cb16-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-325"><a href="#cb16-325" aria-hidden="true" tabindex="-1"></a>Finally, I wanted to see the strength of the model with all of my predictors and the interaction between season and region.</span>
 <span id="cb16-326"><a href="#cb16-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-327"><a href="#cb16-327" aria-hidden="true" tabindex="-1"></a>Finally, I wanted to see the strength of the model with all of my predictors and the interaction between season and region.</span>
+<span id="cb16-327"><a href="#cb16-327" aria-hidden="true" tabindex="-1"></a>**Putting it all together** </span>
 <span id="cb16-328"><a href="#cb16-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-329"><a href="#cb16-329" aria-hidden="true" tabindex="-1"></a>**Putting it all together** </span>
-<span id="cb16-330"><a href="#cb16-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-331"><a href="#cb16-331" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb16-332"><a href="#cb16-332" aria-hidden="true" tabindex="-1"></a>TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * IceExtent_i + </span>
-<span id="cb16-333"><a href="#cb16-333" aria-hidden="true" tabindex="-1"></a>\beta_3 * Season_i * Region_i + \epsilon_i</span>
-<span id="cb16-334"><a href="#cb16-334" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb16-335"><a href="#cb16-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-338"><a href="#cb16-338" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-339"><a href="#cb16-339" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(Value) <span class="sc">~</span> Extent <span class="sc">+</span> Year <span class="sc">+</span> Region <span class="sc">+</span>Season <span class="sc">+</span> Region<span class="sc">:</span>Season, <span class="at">data =</span> all_anomaly_dat)</span>
-<span id="cb16-340"><a href="#cb16-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-341"><a href="#cb16-341" aria-hidden="true" tabindex="-1"></a>mod4 <span class="sc">%&gt;%</span></span>
-<span id="cb16-342"><a href="#cb16-342" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_regression</span>(<span class="at">intercept=</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-343"><a href="#cb16-343" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_gt</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb16-344"><a href="#cb16-344" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">tab_source_note</span>(gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"</span>))</span>
-<span id="cb16-345"><a href="#cb16-345" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-329"><a href="#cb16-329" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb16-330"><a href="#cb16-330" aria-hidden="true" tabindex="-1"></a>TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * IceExtent_i + </span>
+<span id="cb16-331"><a href="#cb16-331" aria-hidden="true" tabindex="-1"></a>\beta_3 * Season_i * Region_i + \epsilon_i</span>
+<span id="cb16-332"><a href="#cb16-332" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb16-333"><a href="#cb16-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-336"><a href="#cb16-336" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-337"><a href="#cb16-337" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(Value) <span class="sc">~</span> Extent <span class="sc">+</span> Year <span class="sc">+</span> Region <span class="sc">+</span>Season <span class="sc">+</span> Region<span class="sc">:</span>Season, <span class="at">data =</span> all_anomaly_dat)</span>
+<span id="cb16-338"><a href="#cb16-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-339"><a href="#cb16-339" aria-hidden="true" tabindex="-1"></a>mod4 <span class="sc">%&gt;%</span></span>
+<span id="cb16-340"><a href="#cb16-340" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_regression</span>(<span class="at">intercept=</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-341"><a href="#cb16-341" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-342"><a href="#cb16-342" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">tab_source_note</span>(gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"</span>))</span>
+<span id="cb16-343"><a href="#cb16-343" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-344"><a href="#cb16-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-345"><a href="#cb16-345" aria-hidden="true" tabindex="-1"></a>**Adjusted R-Squared: 0.9611927**</span>
 <span id="cb16-346"><a href="#cb16-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-347"><a href="#cb16-347" aria-hidden="true" tabindex="-1"></a>**Adjusted R-Squared: 0.9611927**</span>
+<span id="cb16-347"><a href="#cb16-347" aria-hidden="true" tabindex="-1"></a>**Coefficients:** The residuals of this final model were closer to a normal distribution when ship sightings was logged. Th e interpretation of the coefficients reflects that.</span>
 <span id="cb16-348"><a href="#cb16-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-349"><a href="#cb16-349" aria-hidden="true" tabindex="-1"></a>**Coefficients:** The residuals of this final model were closer to a normal distribution when ship sightings was logged. Th e interpretation of the coefficients reflects that.</span>
+<span id="cb16-349"><a href="#cb16-349" aria-hidden="true" tabindex="-1"></a>The intercept is nonsensical due to the nature of our year variable. From the model, we can see that sea ice extent has an effect on the amount of ships observed in our data set. A 1% change in sea ice extent increases ships by 21%. The south has 94% more ship sightings than the north. the last half of the years adds a predicted 81% more ship sightings than the north.</span>
 <span id="cb16-350"><a href="#cb16-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-351"><a href="#cb16-351" aria-hidden="true" tabindex="-1"></a>The intercept is nonsensical due to the nature of our year variable. From the model, we can see that sea ice extent has an effect on the amount of ships observed in our data set. A 1% change in sea ice extent increases ships by 21%. The south has 94% more ship sightings than the north. the last half of the years adds a predicted 81% more ship sightings than the north.</span>
+<span id="cb16-351"><a href="#cb16-351" aria-hidden="true" tabindex="-1"></a>**Interpretation and Conclusion:** </span>
 <span id="cb16-352"><a href="#cb16-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-353"><a href="#cb16-353" aria-hidden="true" tabindex="-1"></a>**Interpretation and Conclusion:** </span>
+<span id="cb16-353"><a href="#cb16-353" aria-hidden="true" tabindex="-1"></a>As we can see year and sea ice extent are significant predictors, but the inclusion of them in the model only increases the R-squared by about 1%. Based on this model and the above analysis, I feel confident concluding that arctic ship traffic in the northern region of my data set is undergoing change and is more vulnerable to the effects of sea ice decline than the southern portion. This makes sense as throughout the entirety of the year, you still see ship observations in the south, and ship navigation is not determined by ice extent, as it is in the northern region.</span>
 <span id="cb16-354"><a href="#cb16-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-355"><a href="#cb16-355" aria-hidden="true" tabindex="-1"></a>As we can see year and sea ice extent are significant predictors, but the inclusion of them in the model only increases the R-squared by about 1%. Based on this model and the above analysis, I feel confident concluding that arctic ship traffic in the northern region of my data set is undergoing change and is more vulnerable to the effects of sea ice decline than the southern portion. This makes sense as throughout the entirety of the year, you still see ship observations in the south, and ship navigation is not determined by ice extent, as it is in the northern region.</span>
+<span id="cb16-355"><a href="#cb16-355" aria-hidden="true" tabindex="-1"></a>**Limitations:** </span>
 <span id="cb16-356"><a href="#cb16-356" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-357"><a href="#cb16-357" aria-hidden="true" tabindex="-1"></a>**Limitations:** </span>
+<span id="cb16-357"><a href="#cb16-357" aria-hidden="true" tabindex="-1"></a>One limitation may come from interpreting my models. In order to conduct my analysis, I totaled ship observations in each area. Ship observations between hexagons naturally includes the same vessels. This means when one interprets the predicted values values of my model 58,290 ship observations in the south doesn't mean 58,290 ships, but rather times a ship was seen, regardless of if it was already registered. Also, for my sea ice extent anomaly data I only had a holistic calculation for the entirety of the arctic, not the specific region my ship traffic focused on. For this I was assuming ice extent trends for the arctic where close enough to the actual numbers in my region, which could have affected the accuracy of my models. In addition, it is also difficult to promise that my predictors are exogenous.</span>
 <span id="cb16-358"><a href="#cb16-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-359"><a href="#cb16-359" aria-hidden="true" tabindex="-1"></a>One limitation may come from interpreting my models. In order to conduct my analysis, I totaled ship observations in each area. Ship observations between hexagons naturally includes the same vessels. This means when one interprets the predicted values values of my model 58,290 ship observations in the south doesn't mean 58,290 ships, but rather times a ship was seen, regardless of if it was already registered. Also, for my sea ice extent anomaly data I only had a holistic calculation for the entirety of the arctic, not the specific region my ship traffic focused on. For this I was assuming ice extent trends for the arctic where close enough to the actual numbers in my region, which could have affected the accuracy of my models. In addition, it is also difficult to promise that my predictors are exogenous.</span>
+<span id="cb16-359"><a href="#cb16-359" aria-hidden="true" tabindex="-1"></a>**Future Research:** </span>
 <span id="cb16-360"><a href="#cb16-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-361"><a href="#cb16-361" aria-hidden="true" tabindex="-1"></a>**Future Research:** </span>
+<span id="cb16-361"><a href="#cb16-361" aria-hidden="true" tabindex="-1"></a>I think it would be interesting to dig deeper into the northern region and target which areas are seeing a large increase in ship observations. To do this it may be better to have ice extent data that apply to more specific regions. I would also suggest looking at specific key months to see how they are changing. For example, if the season that ice becomes too thick to travel is November, it would be interesting to look at how that month is changing over time too understand how fast season extensions are affecting ship traffic.</span>
 <span id="cb16-362"><a href="#cb16-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-363"><a href="#cb16-363" aria-hidden="true" tabindex="-1"></a>I think it would be interesting to dig deeper into the northern region and target which areas are seeing a large increase in ship observations. To do this it may be better to have ice extent data that apply to more specific regions. I would also suggest looking at specific key months to see how they are changing. For example, if the season that ice becomes too thick to travel is November, it would be interesting to look at how that month is changing over time too understand how fast season extensions are affecting ship traffic.</span>
+<span id="cb16-363"><a href="#cb16-363" aria-hidden="true" tabindex="-1"></a>**[Github Repository](https://github.com/mallorygiesie/Arctic_ship_traffic_analysis/tree/main)**</span>
 <span id="cb16-364"><a href="#cb16-364" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-365"><a href="#cb16-365" aria-hidden="true" tabindex="-1"></a>**[Github Repository](https://github.com/mallorygiesie/Arctic_ship_traffic_analysis/tree/main)**</span>
+<span id="cb16-365"><a href="#cb16-365" aria-hidden="true" tabindex="-1"></a>**Appendix**</span>
 <span id="cb16-366"><a href="#cb16-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-367"><a href="#cb16-367" aria-hidden="true" tabindex="-1"></a>**Appendix**</span>
+<span id="cb16-367"><a href="#cb16-367" aria-hidden="true" tabindex="-1"></a>**Supporting Figures**</span>
 <span id="cb16-368"><a href="#cb16-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-369"><a href="#cb16-369" aria-hidden="true" tabindex="-1"></a>**Supporting Figures**</span>
-<span id="cb16-370"><a href="#cb16-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-373"><a href="#cb16-373" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-374"><a href="#cb16-374" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb16-375"><a href="#cb16-375" aria-hidden="true" tabindex="-1"></a>anomaly <span class="ot">&lt;-</span> all_anomaly_dat <span class="sc">|&gt;</span> <span class="fu">select</span>(Extent)</span>
-<span id="cb16-376"><a href="#cb16-376" aria-hidden="true" tabindex="-1"></a>anomaly_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(anomaly, <span class="at">frequency=</span><span class="dv">4</span>, <span class="at">start=</span><span class="fu">c</span>(<span class="dv">2015</span>,<span class="dv">1</span>))</span>
+<span id="cb16-371"><a href="#cb16-371" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-372"><a href="#cb16-372" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb16-373"><a href="#cb16-373" aria-hidden="true" tabindex="-1"></a>anomaly <span class="ot">&lt;-</span> all_anomaly_dat <span class="sc">|&gt;</span> <span class="fu">select</span>(Extent)</span>
+<span id="cb16-374"><a href="#cb16-374" aria-hidden="true" tabindex="-1"></a>anomaly_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(anomaly, <span class="at">frequency=</span><span class="dv">4</span>, <span class="at">start=</span><span class="fu">c</span>(<span class="dv">2015</span>,<span class="dv">1</span>))</span>
+<span id="cb16-375"><a href="#cb16-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-376"><a href="#cb16-376" aria-hidden="true" tabindex="-1"></a>anomaly_ts <span class="ot">&lt;-</span> <span class="fu">as_tsibble</span>(anomaly_ts)</span>
 <span id="cb16-377"><a href="#cb16-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-378"><a href="#cb16-378" aria-hidden="true" tabindex="-1"></a>anomaly_ts <span class="ot">&lt;-</span> <span class="fu">as_tsibble</span>(anomaly_ts)</span>
-<span id="cb16-379"><a href="#cb16-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-380"><a href="#cb16-380" aria-hidden="true" tabindex="-1"></a>anomaly_ts  <span class="sc">%&gt;%</span></span>
-<span id="cb16-381"><a href="#cb16-381" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model</span>(</span>
-<span id="cb16-382"><a href="#cb16-382" aria-hidden="true" tabindex="-1"></a>    <span class="fu">classical_decomposition</span>(value, <span class="at">type =</span> <span class="st">"additive"</span>)</span>
-<span id="cb16-383"><a href="#cb16-383" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb16-384"><a href="#cb16-384" aria-hidden="true" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb16-385"><a href="#cb16-385" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb16-386"><a href="#cb16-386" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Decomposition of Sea Ice Extent Anomalies in the Arctic 2015-2021"</span>)</span>
-<span id="cb16-387"><a href="#cb16-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-388"><a href="#cb16-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-389"><a href="#cb16-389" aria-hidden="true" tabindex="-1"></a>::: {layout-nrow="1"}</span>
-<span id="cb16-392"><a href="#cb16-392" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-393"><a href="#cb16-393" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> Year, <span class="at">data =</span> anomaly_south)</span>
-<span id="cb16-394"><a href="#cb16-394" aria-hidden="true" tabindex="-1"></a>mod <span class="sc">%&gt;%</span></span>
-<span id="cb16-395"><a href="#cb16-395" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_regression</span>(<span class="at">intercept=</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-396"><a href="#cb16-396" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_gt</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb16-397"><a href="#cb16-397" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">tab_source_note</span>(gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"</span>))</span>
-<span id="cb16-398"><a href="#cb16-398" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-399"><a href="#cb16-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-402"><a href="#cb16-402" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-403"><a href="#cb16-403" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> Season <span class="sc">+</span> Year <span class="sc">+</span> Region <span class="sc">+</span> Extent, <span class="at">data =</span> all_anomaly_dat)</span>
-<span id="cb16-404"><a href="#cb16-404" aria-hidden="true" tabindex="-1"></a>mod2 <span class="sc">%&gt;%</span></span>
-<span id="cb16-405"><a href="#cb16-405" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_regression</span>(<span class="at">intercept=</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-406"><a href="#cb16-406" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_gt</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb16-407"><a href="#cb16-407" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">tab_source_note</span>(gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"</span>))</span>
-<span id="cb16-408"><a href="#cb16-408" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-409"><a href="#cb16-409" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-378"><a href="#cb16-378" aria-hidden="true" tabindex="-1"></a>anomaly_ts  <span class="sc">%&gt;%</span></span>
+<span id="cb16-379"><a href="#cb16-379" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model</span>(</span>
+<span id="cb16-380"><a href="#cb16-380" aria-hidden="true" tabindex="-1"></a>    <span class="fu">classical_decomposition</span>(value, <span class="at">type =</span> <span class="st">"additive"</span>)</span>
+<span id="cb16-381"><a href="#cb16-381" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb16-382"><a href="#cb16-382" aria-hidden="true" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb16-383"><a href="#cb16-383" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
+<span id="cb16-384"><a href="#cb16-384" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Decomposition of Sea Ice Extent Anomalies in the Arctic 2015-2021"</span>)</span>
+<span id="cb16-385"><a href="#cb16-385" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-386"><a href="#cb16-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-387"><a href="#cb16-387" aria-hidden="true" tabindex="-1"></a>::: {layout-nrow="1"}</span>
+<span id="cb16-390"><a href="#cb16-390" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-391"><a href="#cb16-391" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> Year, <span class="at">data =</span> anomaly_south)</span>
+<span id="cb16-392"><a href="#cb16-392" aria-hidden="true" tabindex="-1"></a>mod <span class="sc">%&gt;%</span></span>
+<span id="cb16-393"><a href="#cb16-393" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_regression</span>(<span class="at">intercept=</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-394"><a href="#cb16-394" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb16-395"><a href="#cb16-395" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">tab_source_note</span>(gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"</span>))</span>
+<span id="cb16-396"><a href="#cb16-396" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-397"><a href="#cb16-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-400"><a href="#cb16-400" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-401"><a href="#cb16-401" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> Season <span class="sc">+</span> Year <span class="sc">+</span> Region <span class="sc">+</span> Extent, <span class="at">data =</span> all_anomaly_dat)</span>
+<span id="cb16-402"><a href="#cb16-402" aria-hidden="true" tabindex="-1"></a>mod2 <span class="sc">%&gt;%</span></span>
+<span id="cb16-403"><a href="#cb16-403" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_regression</span>(<span class="at">intercept=</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-404"><a href="#cb16-404" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb16-405"><a href="#cb16-405" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">tab_source_note</span>(gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"*Kelly Kapsar, Benjamin Sullender, and Aaron Poe. 2022. North Pacific and Arctic Marine Vessel Traffic Dataset (2015-2020); Hexagon Data.*"</span>))</span>
+<span id="cb16-406"><a href="#cb16-406" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-407"><a href="#cb16-407" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-408"><a href="#cb16-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-409"><a href="#cb16-409" aria-hidden="true" tabindex="-1"></a>**Residual Distributions of my models**</span>
 <span id="cb16-410"><a href="#cb16-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-411"><a href="#cb16-411" aria-hidden="true" tabindex="-1"></a>**Residual Distributions of my models**</span>
-<span id="cb16-412"><a href="#cb16-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-413"><a href="#cb16-413" aria-hidden="true" tabindex="-1"></a>::: {layout-nrow="2"}</span>
-<span id="cb16-416"><a href="#cb16-416" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-417"><a href="#cb16-417" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> Year, <span class="at">data =</span> anomaly_south)</span>
+<span id="cb16-411"><a href="#cb16-411" aria-hidden="true" tabindex="-1"></a>::: {layout-nrow="2"}</span>
+<span id="cb16-414"><a href="#cb16-414" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-415"><a href="#cb16-415" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> Year, <span class="at">data =</span> anomaly_south)</span>
+<span id="cb16-416"><a href="#cb16-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-417"><a href="#cb16-417" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">resid</span>(mod)</span>
 <span id="cb16-418"><a href="#cb16-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-419"><a href="#cb16-419" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">resid</span>(mod)</span>
-<span id="cb16-420"><a href="#cb16-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-421"><a href="#cb16-421" aria-hidden="true" tabindex="-1"></a>interaction_errors <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mod, <span class="fu">aes</span>(<span class="at">sample =</span> res)) <span class="sc">+</span></span>
-<span id="cb16-422"><a href="#cb16-422" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span></span>
-<span id="cb16-423"><a href="#cb16-423" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb16-424"><a href="#cb16-424" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Southern region residuals"</span>)</span>
-<span id="cb16-425"><a href="#cb16-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-426"><a href="#cb16-426" aria-hidden="true" tabindex="-1"></a>interaction_errors</span>
-<span id="cb16-427"><a href="#cb16-427" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-428"><a href="#cb16-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-431"><a href="#cb16-431" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-432"><a href="#cb16-432" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> Region <span class="sc">+</span>Season <span class="sc">+</span> Region<span class="sc">:</span>Season, <span class="at">data =</span> all_anomaly_dat)</span>
+<span id="cb16-419"><a href="#cb16-419" aria-hidden="true" tabindex="-1"></a>interaction_errors <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mod, <span class="fu">aes</span>(<span class="at">sample =</span> res)) <span class="sc">+</span></span>
+<span id="cb16-420"><a href="#cb16-420" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span></span>
+<span id="cb16-421"><a href="#cb16-421" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb16-422"><a href="#cb16-422" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Southern region residuals"</span>)</span>
+<span id="cb16-423"><a href="#cb16-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-424"><a href="#cb16-424" aria-hidden="true" tabindex="-1"></a>interaction_errors</span>
+<span id="cb16-425"><a href="#cb16-425" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-426"><a href="#cb16-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-429"><a href="#cb16-429" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-430"><a href="#cb16-430" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> Region <span class="sc">+</span>Season <span class="sc">+</span> Region<span class="sc">:</span>Season, <span class="at">data =</span> all_anomaly_dat)</span>
+<span id="cb16-431"><a href="#cb16-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-432"><a href="#cb16-432" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">resid</span>(mod3)</span>
 <span id="cb16-433"><a href="#cb16-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-434"><a href="#cb16-434" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">resid</span>(mod3)</span>
-<span id="cb16-435"><a href="#cb16-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-436"><a href="#cb16-436" aria-hidden="true" tabindex="-1"></a>interaction_errors <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mod3, <span class="fu">aes</span>(<span class="at">sample =</span> res)) <span class="sc">+</span></span>
-<span id="cb16-437"><a href="#cb16-437" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span></span>
-<span id="cb16-438"><a href="#cb16-438" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb16-439"><a href="#cb16-439" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"All data: season * region residuals"</span>)</span>
-<span id="cb16-440"><a href="#cb16-440" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-441"><a href="#cb16-441" aria-hidden="true" tabindex="-1"></a>interaction_errors</span>
-<span id="cb16-442"><a href="#cb16-442" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-443"><a href="#cb16-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-446"><a href="#cb16-446" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-447"><a href="#cb16-447" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> Season <span class="sc">+</span> Year <span class="sc">+</span> Region <span class="sc">+</span> Extent, <span class="at">data =</span> all_anomaly_dat)</span>
+<span id="cb16-434"><a href="#cb16-434" aria-hidden="true" tabindex="-1"></a>interaction_errors <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mod3, <span class="fu">aes</span>(<span class="at">sample =</span> res)) <span class="sc">+</span></span>
+<span id="cb16-435"><a href="#cb16-435" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span></span>
+<span id="cb16-436"><a href="#cb16-436" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb16-437"><a href="#cb16-437" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"All data: season * region residuals"</span>)</span>
+<span id="cb16-438"><a href="#cb16-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-439"><a href="#cb16-439" aria-hidden="true" tabindex="-1"></a>interaction_errors</span>
+<span id="cb16-440"><a href="#cb16-440" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-441"><a href="#cb16-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-444"><a href="#cb16-444" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-445"><a href="#cb16-445" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> Season <span class="sc">+</span> Year <span class="sc">+</span> Region <span class="sc">+</span> Extent, <span class="at">data =</span> all_anomaly_dat)</span>
+<span id="cb16-446"><a href="#cb16-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-447"><a href="#cb16-447" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">resid</span>(mod2)</span>
 <span id="cb16-448"><a href="#cb16-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-449"><a href="#cb16-449" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">resid</span>(mod2)</span>
-<span id="cb16-450"><a href="#cb16-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-451"><a href="#cb16-451" aria-hidden="true" tabindex="-1"></a>interaction_errors <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mod2, <span class="fu">aes</span>(<span class="at">sample =</span> res)) <span class="sc">+</span></span>
-<span id="cb16-452"><a href="#cb16-452" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span></span>
-<span id="cb16-453"><a href="#cb16-453" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb16-454"><a href="#cb16-454" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"All data: all predictors residuals"</span>)</span>
-<span id="cb16-455"><a href="#cb16-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-456"><a href="#cb16-456" aria-hidden="true" tabindex="-1"></a>interaction_errors</span>
-<span id="cb16-457"><a href="#cb16-457" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-458"><a href="#cb16-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-461"><a href="#cb16-461" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-462"><a href="#cb16-462" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> <span class="fu">abs</span>(Extent) <span class="sc">+</span> Year <span class="sc">+</span> Season, <span class="at">data =</span> anomaly_north)</span>
-<span id="cb16-463"><a href="#cb16-463" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">resid</span>(mod1)</span>
-<span id="cb16-464"><a href="#cb16-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-465"><a href="#cb16-465" aria-hidden="true" tabindex="-1"></a>interaction_errors <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mod1, <span class="fu">aes</span>(<span class="at">sample =</span> res)) <span class="sc">+</span></span>
-<span id="cb16-466"><a href="#cb16-466" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span></span>
-<span id="cb16-467"><a href="#cb16-467" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb16-468"><a href="#cb16-468" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"Northern region residuals"</span>)</span>
+<span id="cb16-449"><a href="#cb16-449" aria-hidden="true" tabindex="-1"></a>interaction_errors <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mod2, <span class="fu">aes</span>(<span class="at">sample =</span> res)) <span class="sc">+</span></span>
+<span id="cb16-450"><a href="#cb16-450" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span></span>
+<span id="cb16-451"><a href="#cb16-451" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb16-452"><a href="#cb16-452" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"All data: all predictors residuals"</span>)</span>
+<span id="cb16-453"><a href="#cb16-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-454"><a href="#cb16-454" aria-hidden="true" tabindex="-1"></a>interaction_errors</span>
+<span id="cb16-455"><a href="#cb16-455" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-456"><a href="#cb16-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-459"><a href="#cb16-459" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-460"><a href="#cb16-460" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Value <span class="sc">~</span> <span class="fu">abs</span>(Extent) <span class="sc">+</span> Year <span class="sc">+</span> Season, <span class="at">data =</span> anomaly_north)</span>
+<span id="cb16-461"><a href="#cb16-461" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">resid</span>(mod1)</span>
+<span id="cb16-462"><a href="#cb16-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-463"><a href="#cb16-463" aria-hidden="true" tabindex="-1"></a>interaction_errors <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mod1, <span class="fu">aes</span>(<span class="at">sample =</span> res)) <span class="sc">+</span></span>
+<span id="cb16-464"><a href="#cb16-464" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span></span>
+<span id="cb16-465"><a href="#cb16-465" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb16-466"><a href="#cb16-466" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"Northern region residuals"</span>)</span>
+<span id="cb16-467"><a href="#cb16-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-468"><a href="#cb16-468" aria-hidden="true" tabindex="-1"></a>interaction_errors</span>
 <span id="cb16-469"><a href="#cb16-469" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-470"><a href="#cb16-470" aria-hidden="true" tabindex="-1"></a>interaction_errors</span>
+<span id="cb16-470"><a href="#cb16-470" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-471"><a href="#cb16-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-472"><a href="#cb16-472" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-473"><a href="#cb16-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-476"><a href="#cb16-476" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-477"><a href="#cb16-477" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(Value) <span class="sc">~</span> Extent <span class="sc">+</span> Year <span class="sc">+</span> Region <span class="sc">+</span>Season <span class="sc">+</span> Region<span class="sc">:</span>Season, <span class="at">data =</span> all_anomaly_dat)</span>
-<span id="cb16-478"><a href="#cb16-478" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">resid</span>(mod4)</span>
-<span id="cb16-479"><a href="#cb16-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-480"><a href="#cb16-480" aria-hidden="true" tabindex="-1"></a>interaction_errors <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mod4, <span class="fu">aes</span>(<span class="at">sample =</span> res)) <span class="sc">+</span></span>
-<span id="cb16-481"><a href="#cb16-481" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span></span>
-<span id="cb16-482"><a href="#cb16-482" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb16-483"><a href="#cb16-483" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"All Data: All predictors + region * season residuals"</span>)</span>
-<span id="cb16-484"><a href="#cb16-484" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-485"><a href="#cb16-485" aria-hidden="true" tabindex="-1"></a>interaction_errors</span>
-<span id="cb16-486"><a href="#cb16-486" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-487"><a href="#cb16-487" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-474"><a href="#cb16-474" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-475"><a href="#cb16-475" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(Value) <span class="sc">~</span> Extent <span class="sc">+</span> Year <span class="sc">+</span> Region <span class="sc">+</span>Season <span class="sc">+</span> Region<span class="sc">:</span>Season, <span class="at">data =</span> all_anomaly_dat)</span>
+<span id="cb16-476"><a href="#cb16-476" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">resid</span>(mod4)</span>
+<span id="cb16-477"><a href="#cb16-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-478"><a href="#cb16-478" aria-hidden="true" tabindex="-1"></a>interaction_errors <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mod4, <span class="fu">aes</span>(<span class="at">sample =</span> res)) <span class="sc">+</span></span>
+<span id="cb16-479"><a href="#cb16-479" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span></span>
+<span id="cb16-480"><a href="#cb16-480" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb16-481"><a href="#cb16-481" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"All Data: All predictors + region * season residuals"</span>)</span>
+<span id="cb16-482"><a href="#cb16-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-483"><a href="#cb16-483" aria-hidden="true" tabindex="-1"></a>interaction_errors</span>
+<span id="cb16-484"><a href="#cb16-484" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-485"><a href="#cb16-485" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

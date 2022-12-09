@@ -210,7 +210,7 @@ north_time <- traffic_ts_north  %>%
   ) %>%
   components() %>%
   autoplot() +
-  labs(title = "Decomposition of Ship Traffic: Northern Bering and Southern Chukchi from 2015-2021")
+  labs(title = "Decomposition of Ship Traffic: Northern Bering and Southern Chukchi")
 ```
 
 ```{r}
