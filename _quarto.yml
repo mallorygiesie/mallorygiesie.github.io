@@ -9,7 +9,7 @@ website:
     right:
       - href: index.qmd
         text: Home
-      - href: https://mallorygiesie.github.io/Resume/Resume.pdf/
+      - href: Resume/Resume.pdf
         text: Resume
       - href: blog.qmd
         text: Blog

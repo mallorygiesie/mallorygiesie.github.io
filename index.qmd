@@ -6,13 +6,15 @@ about:
   image-shape: round
   image-width: 20em
   links:
-    - text: LinkedIn
+    - icon: linkedin
+      text: LinkedIn
       href: https://www.linkedin.com/in/mallory-giesie-589395251/ 
-    - text: GitHub
+    - icon: github
+      text: GitHub
       href: https://github.com/mallorygiesie
-    - text: Email
+    - icon: envelope
+      text: Email
       href: mailto:mallorygiesie@ucsb.edu
-      
 ---
 
 ::: about_me

@@ -17,6 +17,7 @@ format:
     code-tools: true
     code-fold: true
     fontcolor: "#1A1F16"
+image: pame_shipping.jpg
 ---
 
 ```{r}
