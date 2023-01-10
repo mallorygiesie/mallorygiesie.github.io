@@ -14,13 +14,17 @@ $earth-yellow: #0B3948;
 $navbar-bg: $earl-gray;
 $body-bg: $light-yellow;
 
-.about_me {
-  color: $earth-yellow;
-  font: copperplate;
-}
-
 .quarto-about-jolla {
   background-color: $earl-gray;
+}
+
+.name {
+  color: $lemon-yellow;
+}
+
+.about_me {
+  font: copperplate;
+  color: $earth-yellow;
 }
 
 $link-color: #8EA4D2;

@@ -2,24 +2,29 @@
 title: "Mallory Giesie"
 image: headshot.jpg
 about: 
-  template: jolla
+  template: solana
   image-shape: round
   image-width: 20em
   links:
     - text: LinkedIn
-      href: https://www.linkedin.com/in/mallorygiesie/
+      href: https://www.linkedin.com/in/mallory-giesie-589395251/ 
     - text: GitHub
       href: https://github.com/mallorygiesie
+    - text: Email
+      href: mailto:mallorygiesie@ucsb.edu
+      
 ---
 
 ::: about_me
-<h1>All About Me!</h1>
+<h1  class = "name"> All About Me!</h1>
 
-<h2>**Pronouns:** she/her</h2>
+<h2  class = "name">**Pronouns:** she/her</h2>
 
-::: Bio
-**Website Under Construction**
+I'm Mallory Giesie.
 
-I am currently pursuing my master's student in Environmental Data Science at the University of California-Santa Barbara's Bren School of Environmental Science & Management.
-:::
-:::
+I am currently pursuing my Master's of Environmental Data Science at the Bren School of Environmental Science & Management.
+ 
+I made my way to Santa Barbara after completing my bachelor's degree at the American University of Paris in Quantitative Environmental Science.
+
+::: 
+

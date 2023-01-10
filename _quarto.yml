@@ -2,17 +2,18 @@ project:
   type: website
   output-dir: docs
 
-website:
-  title: "Mallory Giesie"
-  navbar:
-    left:
+website: 
+  title: 
+    Mallory Giesie <br> Environmental Data Scientist
+  navbar: 
+    right:
       - href: index.qmd
         text: Home
-      - href: resume.qmd
+      - href: https://mallorygiesie.github.io/Resume/Resume.pdf/
         text: Resume
       - href: blog.qmd
         text: Blog
-      - href: Portfolio
+      - href: projects.qmd
         text: Portfolio
 format:
   html:

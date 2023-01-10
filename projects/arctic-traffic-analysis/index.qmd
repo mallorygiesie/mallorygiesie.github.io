@@ -40,7 +40,6 @@ rootdir <- "/Users/mallorygiesie/Desktop/MEDS/eds-222/final_project"
 
 *Introduction:*
 
-
 The Arctic Sea, once an area nearly impenetrable, has become a new playground for shipping and tourism alike. This is impart due to advances in ships and navigation allowing safer passage to areas once completely isolated. More importantly, and what this analysis is meant to reflect, is the effect climate change has had on ice extent allowing for more ships to voyage, more months out of the year throughout the arctic. It has been reported that between the years 2013 and 2019 the number of ships entering arctic grew by 25%. ([PAME](https://www.pame.is/projects/arctic-marine-shipping/arctic-shipping-status-reports)). In 2017, The Polar Code was enacted by the International Maritime Organization providing framework for safely navigating polar waters while adhering to environmental protocol. The region is under a time of immense change, and understanding ship traffic patterns is integral to assessing potential increased destruction to the area.
 
 **My Data**
@@ -162,9 +161,7 @@ I wanted to look at the changes in ship traffic over time and how these may chan
 
 *2. OLS Linear regression*
 
-I wanted to understand what factors determine the number of ships sited in a given month. To do this I summed each hex value to determine the number of vessels registered per month. I split these up to north and south and ran OLS linear regression with sea ice anomaly, year, and season (first or last half of the year) as my predicting variables.
-I then combined the data sets and ran an OLS linear regression which now included region (north or south) as a predictor of monthly ship numbers.
-Then finally I included an interaction to see if the effect of the season depends on the region.
+I wanted to understand what factors determine the number of ships sited in a given month. To do this I summed each hex value to determine the number of vessels registered per month. I split these up to north and south and ran OLS linear regression with sea ice anomaly, year, and season (first or last half of the year) as my predicting variables. I then combined the data sets and ran an OLS linear regression which now included region (north or south) as a predictor of monthly ship numbers. Then finally I included an interaction to see if the effect of the season depends on the region.
 
 **My Results**
 
@@ -213,6 +210,7 @@ north_time <- traffic_ts_north  %>%
   autoplot() +
   labs(title = "Decomposition of Ship Traffic: Northern Bering and Southern Chukchi")
 ```
+
 ::: {layout-nrow="1"}
 ```{r}
 #| echo: false
@@ -272,7 +270,7 @@ anomaly_north <-  anomaly_north |> mutate(Region = "north")
 all_anomaly_dat <- rbind(anomaly_south, anomaly_north) |> mutate(Region = as.factor(Region))
 ```
 
-**Understanding the effect season has on the each region** 
+**Understanding the effect season has on the each region**
 
 $$
 TotalShipCount = \beta_0 + \beta_1 * Region_i + \beta_1 * Season_i +
@@ -292,13 +290,11 @@ mod3 %>%
 
 **Coefficients:** The intercept: 3,867 ships is the predicted number of ship sightings in the northern region in the first half of the year. 58,290 is the difference in predicted ship sightings between the north and south. 14,255 is the predicted difference in ship sightings between the first and last half of the year. From the interaction coefficient, if we wanted to determine the number of predicted ship sightings in the south in the last half of the year we would calculate
 
-$$ShipSightings = 3,867 + 58,290 + 14,255 - 16,002$$ 
-$$ 60,410 $$
-An adjusted R-squared value of .9529 means that season and region alone contribute to about 95% percent of the variability in ship sightings.
+$$ShipSightings = 3,867 + 58,290 + 14,255 - 16,002$$ $$ 60,410 $$ An adjusted R-squared value of .9529 means that season and region alone contribute to about 95% percent of the variability in ship sightings.
 
 Finally, I wanted to see the strength of the model with all of my predictors and the interaction between season and region.
 
-**Putting it all together** 
+**Putting it all together**
 
 $$
 TotalShipCount = \beta_0 + \beta_1 * Year_i + \beta_1 * Season_i + \beta_1 * IceExtent_i + 
@@ -320,19 +316,19 @@ mod4 %>%
 
 The intercept is nonsensical due to the nature of our year variable. From the model, we can see that sea ice extent has an effect on the amount of ships observed in our data set. A 1% change in sea ice extent increases ships by 21%. The south has 94% more ship sightings than the north. the last half of the years adds a predicted 81% more ship sightings than the north.
 
-**Interpretation and Conclusion:** 
+**Interpretation and Conclusion:**
 
 As we can see year and sea ice extent are significant predictors, but the inclusion of them in the model only increases the R-squared by about 1%. Based on this model and the above analysis, I feel confident concluding that arctic ship traffic in the northern region of my data set is undergoing change and is more vulnerable to the effects of sea ice decline than the southern portion. This makes sense as throughout the entirety of the year, you still see ship observations in the south, and ship navigation is not determined by ice extent, as it is in the northern region.
 
-**Limitations:** 
+**Limitations:**
 
 One limitation may come from interpreting my models. In order to conduct my analysis, I totaled ship observations in each area. Ship observations between hexagons naturally includes the same vessels. This means when one interprets the predicted values values of my model 58,290 ship observations in the south doesn't mean 58,290 ships, but rather times a ship was seen, regardless of if it was already registered. Also, for my sea ice extent anomaly data I only had a holistic calculation for the entirety of the arctic, not the specific region my ship traffic focused on. For this I was assuming ice extent trends for the arctic where close enough to the actual numbers in my region, which could have affected the accuracy of my models. In addition, it is also difficult to promise that my predictors are exogenous.
 
-**Future Research:** 
+**Future Research:**
 
 I think it would be interesting to dig deeper into the northern region and target which areas are seeing a large increase in ship observations. To do this it may be better to have ice extent data that apply to more specific regions. I would also suggest looking at specific key months to see how they are changing. For example, if the season that ice becomes too thick to travel is November, it would be interesting to look at how that month is changing over time too understand how fast season extensions are affecting ship traffic.
 
-**[Github Repository](https://github.com/mallorygiesie/Arctic_ship_traffic_analysis/tree/main)**
+[**Github Repository**](https://github.com/mallorygiesie/Arctic_ship_traffic_analysis/tree/main)
 
 **Appendix**
 
