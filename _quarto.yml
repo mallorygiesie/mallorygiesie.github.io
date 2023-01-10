@@ -3,23 +3,24 @@ project:
   output-dir: docs
 
 website: 
-  title: 
-    Mallory Giesie <br> Environmental Data Scientist
+  title: Mallory Giesie <br> Environmental Data Scientist
   navbar: 
     right:
       - href: index.qmd
         text: Home
-      - href: Resume/Resume.pdf
-        text: Resume
-      - href: blog.qmd
-        text: Blog
       - href: projects.qmd
         text: Portfolio
+      - href: blog.qmd
+        text: Blog
+      - href: https://bren.ucsb.edu/people/mallory-giesie
+        text: About
+      - href: Resume/Resume.pdf
+        text: Resume
 format:
   html:
     theme:
     - mystyles.scss
     toc: true
-
+mainfont: Playfair
 editor: visual
 

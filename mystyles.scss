@@ -1,33 +1,10 @@
 /*-- scss:defaults --*/
 
-// colors
-
-$earl-gray: #5B9279;
-
-$light-yellow: #FBFFF1;
-
-$lemon-yellow: #CDEDF6;
-
-$earth-yellow: #0B3948;
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 //Base Document Colors
-$navbar-bg: $earl-gray;
-$body-bg: $light-yellow;
-
-.quarto-about-jolla {
-  background-color: $earl-gray;
-}
-
-.name {
-  color: $lemon-yellow;
-}
-
-.about_me {
-  font: copperplate;
-  color: $earth-yellow;
-}
-
-$link-color: #8EA4D2;
-
-
+$navbar-bg: #50723C;
+$body-bg: #F1FFE5;
+$link-color: #D81159;
 

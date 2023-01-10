@@ -1,6 +1,6 @@
 ---
 title: "Analysis of Changing Arctic Traffic"
-description: ""
+description: "Time Series Analysis of Changing Arctic Traffic from 2015 to 2020"
 author:
   - name: Mallory Giesie
     url: https://mallorygiesie.github.io/
