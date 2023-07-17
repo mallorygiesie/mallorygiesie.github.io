@@ -31,5 +31,10 @@ Welcome!
 
 I'm Mallory Giesie.
 
-I am currently pursuing my Master's of Environmental Data Science at the Bren School of Environmental Science & Management. For my master's capstone my team will be working to use meteorological data in order to develop various climate scenarios which will be used to model future fire regimes in the California Central Coast. I made my way to Santa Barbara after completing my Bachelor's degree at the American University of Paris in Quantitative Environmental Science. For my undergraduate thesis I simulated and analyzed a co-evolution experiment that I was lucky enough to assist on at the University of Konstanz. My goal is to continue to use data to assist in environmental exploration and problem solving. I'll be updating this website as I continue throughout my journey!
+My adventure in environmental data science began at the American University of Paris, where I pursued a degree in quantitative environmental science and computer science. During my undergraduate years, I had the opportunity to be involved in ecological research at the University of Konstanz in Germany - pictured here :) This experience, a blend of lab work and data analysis, inspired me to pursue a master's degree in Environmental Data Science at the Bren School of Environmental Science & Management.\
+\
+At Bren, my skills really took shape and my excitement to dive into the field found its footing. For my master's capstone we partnered with the [Tague Team lab](https://www.tagueteamlab.com) in a larger project supported by the Moore Foundation to automate the integration of unique climate scenarios into their ecohydrological modeling, optimizing their workflow with the latest climate science for enhanced accuracy. You can take a look at our Github repository [here](https://github.com/fire-futures).
+
+
+As a recent graduate, I am eager to find a role where I can apply these skills and make a meaningful impact. I'll update this website with all my projects as I go!
 :::
