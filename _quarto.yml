@@ -10,8 +10,8 @@ website:
         text: Home
       - href: projects.qmd
         text: Portfolio
-      - href: blog.qmd
-        text: Blog
+      # - href: blog.qmd
+      #   text: Blog
       - href: https://bren.ucsb.edu/people/mallory-giesie
         text: About
       - href: Resume/Resume.pdf
